@@ -56,13 +56,9 @@ nav{
 }
 
 #menu ul{
-	margin-top: 0;
-    padding: 0;
     list-style-type:none;
     text-align:center;
-	height:20%;
 	border:none;
-	z-index:1;
 }
 #menu ul li {
     display: inline;
