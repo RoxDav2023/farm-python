@@ -12,3 +12,50 @@ li{
 div{
 
 }
+
+
+.dropdown{
+    position:relative;
+    display:block;
+    border-radius: 10px;
+    color:#f8f7f7;
+    
+}
+.dropdown a{
+    color:black;
+}
+.dropdown a:hover{
+    color:red;
+}
+
+
+.dropdownc1{
+    display:none;
+    position:absolute;
+    background-color:white;
+    top:75px;
+    left:20px;
+    min-width:50px;
+    max-width: 100px;
+    z-index:1;
+    border-radius:10px ;
+}
+.dropdownc2{
+    display:none;
+    position:absolute;
+    background-color:white;
+    top:75px;
+    left:20px;
+    min-width:50px;
+    max-width: 100px;
+    z-index:1;
+    border-radius:10px ;
+}
+
+
+.dropdown:hover .dropdownc1{
+    display:inline-block;
+}
+.dropdown:hover .dropdownc2{
+    display:inline-block;
+}
