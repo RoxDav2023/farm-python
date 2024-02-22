@@ -18,7 +18,7 @@ div{
     position:relative;
     display:block;
     border-radius: 10px;
-    color:black;
+    color:#f8f7f7;
     
 }
 .dropdown a{
@@ -27,17 +27,20 @@ div{
 .dropdown a:hover{
     color:red;
 }
-.dropdown img{
-    position:fixed;
-    top:40px;
-    left:40px;
-    width:30px;
-    height:30px;
+
+
+.dropdownc1{
+    display:none;
+    position:absolute;
+    background-color:white;
+    top:75px;
+    left:20px;
+    min-width:50px;
+    max-width: 100px;
+    z-index:1;
+    border-radius:10px ;
 }
-.dropdown img:hover{
-    content:url("../Images/hamburgersWhite2.png")
-}
-.dropdown-content{
+.dropdownc2{
     display:none;
     position:absolute;
     background-color:white;
@@ -50,6 +53,9 @@ div{
 }
 
 
-.dropdown:hover .dropdown-content{
+.dropdown:hover .dropdownc1{
     display:inline-block;
-    
+}
+.dropdown:hover .dropdownc2{
+    display:inline-block;
+}
