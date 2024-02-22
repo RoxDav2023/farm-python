@@ -1,20 +1,23 @@
 [
     {
-        "nom":"Durand",
-        "prenom":"Jean",
-        "email":"jean.Durand@test.com",
+        "id":1,
+        "nom":"David",
+        "prenom":"Roxane",
+        "gamertag":"QueenBTS23RD",
         "icone":"avatar1.png"
     },
     {
-        "nom":"Dupont",
-        "prenom":"Paul",
-        "email":"paul.dupond@test.com",
+        "id":2,
+        "nom":"Poirier",
+        "prenom":"Danick",
+        "gamertag":"DanThePro79",
         "icone":"avatar2.png"
     },
     {
-        "nom":"Martin",
-        "prenom":"Jacques",
-        "email":"jaques.martin@test.com",
-        "icone":"avatar2.png"
+        "id":3,
+        "nom":"Viel",
+        "prenom":"Xavier",
+        "email":"Prof_X_01",
+        "icone":"avatar3.png"
     }
 ]
