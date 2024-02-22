@@ -1,31 +1,32 @@
 [
   {
-    "titre": "test0",
-    "description": "description0",
-    "statut": "non assignee",
-    "employe": null
+    "titre": "Cobblestone",
+    "description": "cobblestone generator for the world",
+    "statut": "unnasigned",
+    "employee": null
   },
   {
-    "titre": "test1",
-    "description": "description1",
-    "statut": "non assignee",
-    "employe": null
+    "titre": "Iron Farm",
+    "description": "a simple farm using villagers to summon iron golems",
+    "statut": "unnasigned",
+    "employee": null
   },
   {
-    "titre": "test2",
-    "description": "description2",
-    "statut": "en cours",
-    "employe": null
+    "titre": "Blaze Farm",
+    "description": "a farm to get lots of blaze rods",
+    "statut": "in Progress",
+    "employee": {
+      "id":3,
+      "lname":"Viel",
+      "fname":"Xavier",
+      "email":"Prof_X_01",
+      "icon":"avatar3.png"
+    }
   },
   {
     "titre": "testfini",
     "description": "description finie",
-    "statut": "termine",
-    "employe": {
-        "nom":"Martin",
-        "prenom":"Jacques",
-        "email":"jaques.martin@test.com",
-        "icone":"avatar2.png"
-    }
+    "statut": "done",
+    "employee": null
   }
 ]
