@@ -1,23 +1,23 @@
 [
     {
         "id":1,
-        "nom":"David",
-        "prenom":"Roxane",
+        "lname":"David",
+        "fname":"Roxane",
         "gamertag":"QueenBTS23RD",
-        "icone":"avatar1.png"
+        "icon":"avatar1.png"
     },
     {
         "id":2,
-        "nom":"Poirier",
-        "prenom":"Danick",
+        "lname":"Poirier",
+        "fname":"Danick",
         "gamertag":"DanThePro79",
-        "icone":"avatar2.png"
+        "icon":"avatar2.png"
     },
     {
         "id":3,
-        "nom":"Viel",
-        "prenom":"Xavier",
+        "lname":"Viel",
+        "fname":"Xavier",
         "email":"Prof_X_01",
-        "icone":"avatar3.png"
+        "icon":"avatar3.png"
     }
 ]
