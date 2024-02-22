@@ -3,8 +3,7 @@ body{
     color: white;
 }
 nav{
-    padding-top:5%;
-	height:22%;
+    padding-top:10px;
 }
 
 
@@ -12,7 +11,7 @@ nav{
     position:relative;
     display:block;
     border-radius: 10px;
-    color:#f8f7f7;
+    color:#ffffff;
 
 }
 .dropdown a{
@@ -26,25 +25,25 @@ nav{
 .dropdownc1{
     display:none;
     position:absolute;
-    background-color:white;
-    top:75px;
-    left:20px;
-    min-width:50px;
-    max-width: 100px;
+    background-color:#4c779c;
+    top:50px;
+    left:27px;
+    width:64px;
     z-index:1;
     border-radius:10px ;
+    border:2px white solid;
 
 }
 .dropdownc2{
     display:none;
     position:absolute;
-    background-color:white;
-    top:75px;
-    left:20px;
-    min-width:50px;
-    max-width: 100px;
+    background-color:#4c779c;
+    top:50px;
+    left:27px;
+    width:64px;
     z-index:1;
     border-radius:10px ;
+    border:2px white solid;
 }
 
 
@@ -58,23 +57,26 @@ nav{
 #menu ul{
     list-style-type:none;
     text-align:center;
-	border:none;
+	
 }
 #menu ul li {
-    display: inline;
+    display:inline-block;
+    border:2px #ffffff solid;
+    padding-left:10px;
+    padding-right:10px;
+    width:100px
 }
 #menu ul li a {
 	text-decoration: none;
-	padding: 0.5% 3%;
-	color:#ffffff;
+	color:#000000;
 }
 #menu ul li a:hover {
-	color: #ffffff;
+	color: #669ecf;
 }
 
 .navbar{
-	overflow: hidden;
+	
 	width:100%;
-	display:block;
+	display:inline-block;
 	
 }
