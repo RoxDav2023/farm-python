@@ -3,14 +3,8 @@ body{
     color: white;
 }
 nav{
-    
-
-}
-li{
-    list-style-type: none;
-}
-div{
-
+    padding-top:5%;
+	height:22%;
 }
 
 
@@ -19,15 +13,15 @@ div{
     display:block;
     border-radius: 10px;
     color:#f8f7f7;
-    
+
 }
 .dropdown a{
     color:black;
 }
 .dropdown a:hover{
     color:red;
-}
 
+}
 
 .dropdownc1{
     display:none;
@@ -39,6 +33,7 @@ div{
     max-width: 100px;
     z-index:1;
     border-radius:10px ;
+
 }
 .dropdownc2{
     display:none;
@@ -58,4 +53,32 @@ div{
 }
 .dropdown:hover .dropdownc2{
     display:inline-block;
+}
+
+#menu ul{
+	margin-top: 0;
+    padding: 0;
+    list-style-type:none;
+    text-align:center;
+	height:20%;
+	border:none;
+	z-index:1;
+}
+#menu ul li {
+    display: inline;
+}
+#menu ul li a {
+	text-decoration: none;
+	padding: 0.5% 3%;
+	color:#ffffff;
+}
+#menu ul li a:hover {
+	color: #ffffff;
+}
+
+.navbar{
+	overflow: hidden;
+	width:100%;
+	display:block;
+	
 }
