@@ -7,9 +7,12 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
-    return render_template('index.html', farms=farms)
+    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    return render_template('index.html', farms=farms, builders = builders)
 
 @app.route("/farm/add", methods=['GET'])
+def fadd():
+    return render_template('addfarm.html')
 
 @app.route("/farm/add", methods=['POST'])
 
@@ -26,6 +29,8 @@ def index():
 @app.route("/farm/status?<int:id>", methods=['POST'])
 
 @app.route("/builder/add", methods=['GET'])
+def badd():
+    return render_template('addbuilder.html')
 
 @app.route("/builder/add", methods=['POST'])
 
