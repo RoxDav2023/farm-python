@@ -12,3 +12,44 @@ li{
 div{
 
 }
+
+
+.dropdown{
+    position:relative;
+    display:block;
+    border-radius: 10px;
+    color:black;
+    
+}
+.dropdown a{
+    color:black;
+}
+.dropdown a:hover{
+    color:red;
+}
+.dropdown img{
+    position:fixed;
+    top:40px;
+    left:40px;
+    width:30px;
+    height:30px;
+}
+.dropdown img:hover{
+    content:url("../Images/hamburgersWhite2.png")
+}
+.dropdown-content{
+    display:none;
+    position:absolute;
+    background-color:white;
+    top:75px;
+    left:20px;
+    min-width:50px;
+    max-width: 100px;
+    z-index:1;
+    border-radius:10px ;
+}
+
+
+.dropdown:hover .dropdown-content{
+    display:inline-block;
+    
