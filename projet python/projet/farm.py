@@ -23,7 +23,10 @@ def faddPOST():
     # creation d'un nouveau todo
     newfarm =  {}
     newfarm['title'] = request.form['title']
-    #gestin des employes assignes
+    #gestion des employes assignes
+
+    ## modification necessaire ##
+    
     if (request.form.get['employee'] == json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))):
         newfarm['employee'] = {request.form.get['employee']}
     else:
