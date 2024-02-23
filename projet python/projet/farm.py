@@ -26,7 +26,7 @@ def faddPOST():
     #gestion des employes assignes
 
     ## modification necessaire ##
-    
+
     if (request.form.get['employee'] == json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))):
         newfarm['employee'] = {request.form.get['employee']}
     else:
@@ -51,6 +51,12 @@ def faddPOST():
     return redirect('/todos')
 
 @app.route("/farm/modify?<int:id>", methods=['GET'])
+def modifyFarm(id):
+    print(id)
+    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+
+    farm = list(filter(lambda x: x['id'] == id, farms))[0]
+    return render_template('modifyFarm.html', farm=farm)
 
 @app.route("/farm/modify?<int:id>", methods=['POST'])
 
