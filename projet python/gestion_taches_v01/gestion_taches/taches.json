@@ -1,18 +1,21 @@
 [
   {
-    "titre": "Cobblestone",
+    "id":1,
+    "title": "Cobblestone",
     "description": "cobblestone generator for the world",
     "statut": "unnasigned",
     "employee": null
   },
   {
-    "titre": "Iron Farm",
+    "id":2,
+    "title": "Iron Farm",
     "description": "a simple farm using villagers to summon iron golems",
     "statut": "unnasigned",
     "employee": null
   },
   {
-    "titre": "Blaze Farm",
+    "id":3,
+    "title": "Blaze Farm",
     "description": "a farm to get lots of blaze rods",
     "statut": "in Progress",
     "employee": {
@@ -24,7 +27,8 @@
     }
   },
   {
-    "titre": "testfini",
+    "id":4,
+    "title": "testfini",
     "description": "description finie",
     "statut": "done",
     "employee": null
