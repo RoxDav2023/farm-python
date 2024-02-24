@@ -22,7 +22,7 @@
                         <div class="dropdownc1">
                             <table>
                                 <tbody>
-                                    {% for todo in todos %}
+                                    <!-- {% for todo in todos %} -->
                                     <tr>
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
                                     </tr>
@@ -35,7 +35,7 @@
                                     <tr>
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Status</a></button></td>
                                     </tr>
-                                    {% endfor %}
+                                    <!-- {% endfor %} -->
                                 </tbody>
                             </table>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="dropdownc2">
                             <table>
                                 <tbody>
-                                    {% for todo in todos %}
+                                    <!-- {% for todo in todos %} -->
                                     <tr>
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
                                     </tr>
@@ -60,7 +60,7 @@
                                     <tr>
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Assign</a></button></td>
                                     </tr>
-                                    {% endfor %}
+                                    <!-- {% endfor %} -->
                                 </tbody>
                             </table>
                         </div>
