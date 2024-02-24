@@ -16,8 +16,8 @@ nav{
     padding-top:10px;
     width: 80%;
     position: fixed;
-    position: relative;
-    top:-80px;
+    position: absolute;
+    top:-10px;
 }
 
 
