@@ -12,6 +12,13 @@ body{
     border-radius: 10%;
     
 }
+#link{
+    z-index:1;
+    position: absolute;
+    top: 5px;
+    left:5px;
+    position: fixed;
+}
 nav{
     padding-top:10px;
     width: 80%;
