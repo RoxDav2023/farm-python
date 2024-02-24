@@ -139,18 +139,22 @@ def modifyBuilder(id):
 @app.route("/builder/modify?<int:id>", methods=['POST'])
 def modifyBuilderPOST(id):
     builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
-
+    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
     builder = list(filter(lambda x:x['id'] == id, builders))[0]
-    farms={}
-    farms['title'] = request.form['assigned to']
+    farm={}
+    farm['title'] = request.form['assigned to']
     builder['lname'] = request.form['last name']
     builder['fname'] = request.form['first name']
     builder['gamertag'] = request.form['gamertag']
     builder['icon'] = request.form['icon']
     builder['assigned to'].append(farms['title'])
 
-#@app.route("/builder/remove", methods=['GET'])
+    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
+    return redirect('/')
 
+@app.route("/builder/remove?<int:id>", methods=['GET'])
+def removeBuilder(id):
+    builders=json.load(open())
 
 
 #@app.route("/builder/assign", methods=['GET'])
