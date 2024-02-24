@@ -103,8 +103,10 @@ def badd():
 def baddPOST():    
     builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
-    
+
     # creation d'un nouveau todo
+    farms={}
+    farms['title'] = request.form['assigned to']
     builder =  {}
     builder['lname'] = request.form['last name']
     builder['fname'] = request.form['first name']
@@ -113,7 +115,7 @@ def baddPOST():
     builder['assigned to'] = []
     #verifie si plus que trois
     if(builder['assigned to'].len()<3):
-        builder['assigned to'] = builder['assigned to'].append()
+        builder['assigned to'] = builder['assigned to'].append(farms['title'])
     else:
         print("this builder can not be assigned to any more tasks for the moment, please finish the task or reassign this builder before giving hime more tasks")
 
@@ -127,7 +129,12 @@ def baddPOST():
     return redirect('/')
 
 @app.route("/builder/modify", methods=['GET'])
+def modifyBuilder(id):
+    print(id)
+    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
 
+    builder = list(filter(lambda x:x['id'] == id, builders))[0]
+    return render_template('modifyBuilder.html', builder = builder)
 
 @app.route("/builder/modify", methods=['POST'])
 
