@@ -20,7 +20,9 @@ nav{
     top:-75px;
 }
 button{
-
+    background-color: #212121;
+    border-radius: 5px;
+    border:2px #212121 solid;
 }
 h1{
     position: relative;
@@ -34,10 +36,10 @@ h1{
 
 }
 .dropdown a{
-    color:black;
+    color:#a10505;
 }
 .dropdown a:hover{
-    color:red;
+    color:#ffffff;
 
 }
 
@@ -89,10 +91,10 @@ h1{
 }
 #menu ul li a {
 	text-decoration: none;
-	color:#000000;
+	color:#a10505;
 }
 #menu ul li a:hover {
-	color: #669ecf;
+	color: #ffffff;
 }
 
 .navbar{
