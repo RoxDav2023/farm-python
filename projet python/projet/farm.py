@@ -157,9 +157,15 @@ def removeBuilder(id):
     builders=json.load(open())
 
 
-#@app.route("/builder/assign", methods=['GET'])
+@app.route("/builder/assign", methods=['GET'])
+def builderAssignGET():
+    #allo
+    return
 
-#@app.route("/builder/assign", methods=['POST'])
+@app.route("/builder/assign", methods=['POST'])
+def builderAssignPOST():
+    #allo
+    return
 
 
 app.run()
