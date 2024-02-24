@@ -1,9 +1,17 @@
 body{
-    background-color:#4c779c;
-    color: white;
+   color: white;
+   background-image:url(../image/redstone.png); 
+   width:80%;
+    
+}
+.logo{
+    width:20px;
+    border-radius:  50px;
 }
 nav{
     padding-top:10px;
+    width: 80%;
+    position: fixed;
 }
 
 
