@@ -141,7 +141,8 @@ def modifyBuilderPOST(id):
     builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
 
     builder = list(filter(lambda x:x['id'] == id, builders))[0]
-
+    farms={}
+    farms['title'] = request.form['assigned to']
     builder['lname'] = request.form['last name']
     builder['fname'] = request.form['first name']
     builder['gamertag'] = request.form['gamertag']
