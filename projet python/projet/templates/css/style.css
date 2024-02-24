@@ -1,7 +1,9 @@
 body{
    color: white;
    background-image:url(../image/redstone.png); 
-   width:80%;
+   width:90%;
+   background-repeat: no-repeat;
+   background-size: 100%;
     
 }
 .logo{
