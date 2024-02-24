@@ -4,27 +4,31 @@
         "lname":"David",
         "fname":"Roxane",
         "gamertag":"QueenBTS23RD",
-        "icon":"avatar1.png"
+        "icon":"avatar1.png",
+        "assigned to":[]
     },
     {
         "id":2,
         "lname":"Poirier",
         "fname":"Danick",
         "gamertag":"DanThePro79",
-        "icon":"avatar2.png"
+        "icon":"avatar2.png",
+        "assigned to":[]
     },
     {
         "id":3,
         "lname":"Viel",
         "fname":"Xavier",
-        "email":"Prof_X_01",
-        "icon":"avatar3.png"
+        "gamertag":"Prof_X_01",
+        "icon":"avatar3.png",
+        "assigned to":["Blaze Farm"]
     },
     {
         "id":4,
         "lname":"Michaud",
         "fname":"Maxime",
-        "email":"PandaLag77777",
-        "icon":"avatar4.png"
+        "gamertag":"PandaLag77777",
+        "icon":"avatar4.png",
+        "assigned to":[]
     }
 ]

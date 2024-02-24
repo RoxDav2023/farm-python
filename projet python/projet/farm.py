@@ -19,6 +19,8 @@ def fadd():
 def faddPOST():
     
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    addfarmtobuilder = {}
 
     # creation d'un nouveau todo
     newfarm =  {}
@@ -26,15 +28,15 @@ def faddPOST():
     #gestion des employes assignes
 
     ## modification necessaire ##
+    newfarm['employee'] = []
 
     if (request.form.get['employee'] == json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))):
-        newfarm['employee'] = {request.form.get['employee']}
-    else:
-        newfarm['employee'] = None
+        newfarm['employee'] = newfarm['employee'].append(request.form.get['employee'])
+
     # la gestion du done est un peu plus compliquee...
     if(request.form.get('done')):
         newfarm['statut'] = 'done'
-        newfarm['employee'] = None
+        newfarm['employee'] = newfarm['employee'].clear()
     elif(request.form.get('in Progress')):    
         newfarm['statut'] = 'in Progress'
     else:
@@ -98,8 +100,34 @@ def badd():
     return render_template('addbuilder.html')
 
 @app.route("/builder/add", methods=['POST'])
+def baddPOST():    
+    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    
+    # creation d'un nouveau todo
+    builder =  {}
+    builder['lname'] = request.form['last name']
+    builder['fname'] = request.form['first name']
+    builder['gamertag'] = request.form['gamertag']
+    builder['icon'] = request.form['icon']
+    builder['assigned to'] = []
+    #verifie si plus que trois
+    if(builder['assigned to'].len()<3):
+        builder['assigned to'] = builder['assigned to'].append()
+    else:
+        print("this builder can not be assigned to any more tasks for the moment, please finish the task or reassign this builder before giving hime more tasks")
+
+    # on lui donne un id unique : le plus grand id + 1
+    builder['id'] = (max(builders, key = lambda x: x['id'])['id'])+1
+    builders.append(builder)
+
+    # on ecrase le fichier avec la liste mise a jour
+    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+
+    return redirect('/')
 
 @app.route("/builder/modify", methods=['GET'])
+
 
 @app.route("/builder/modify", methods=['POST'])
 
