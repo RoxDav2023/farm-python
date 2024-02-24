@@ -19,8 +19,13 @@ nav{
     position: relative;
     top:-75px;
 }
+button{
 
-
+}
+h1{
+    position: relative;
+    top: -12px;
+}
 .dropdown{
     position:relative;
     display:block;
@@ -71,6 +76,7 @@ nav{
 #menu ul{
     list-style-type:none;
     text-align:center;
+    
 	
 }
 #menu ul li {
