@@ -16,6 +16,8 @@ nav{
     padding-top:10px;
     width: 80%;
     position: fixed;
+    position: relative;
+    top:-80px;
 }
 
 
@@ -76,7 +78,8 @@ nav{
     border:2px #ffffff solid;
     padding-left:10px;
     padding-right:10px;
-    width:100px
+    width:80px;
+    height:40px;
 }
 #menu ul li a {
 	text-decoration: none;
