@@ -87,9 +87,11 @@ def removeFarm(id):
 
     return redirect('/')
 
-@app.route("/farm/status?<int:id>", methods=['GET'])
+@app.route("/farm/status?<int:id>")
+def showstatus():
+    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
 
-@app.route("/farm/status?<int:id>", methods=['POST'])
+    return render_template('statusFarm.html', farms = farms)
 
 @app.route("/builder/add", methods=['GET'])
 def badd():
