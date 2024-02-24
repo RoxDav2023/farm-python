@@ -48,7 +48,7 @@ def faddPOST():
     # on ecrase le fichier avec la liste mise a jour
     json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
 
-    return redirect('/todos')
+    return redirect('/')
 
 @app.route("/farm/modify?<int:id>", methods=['GET'])
 def modifyFarm(id):
@@ -59,10 +59,33 @@ def modifyFarm(id):
     return render_template('modifyFarm.html', farm=farm)
 
 @app.route("/farm/modify?<int:id>", methods=['POST'])
+def modifyFarmPOST(id):
+    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+
+    farm = list(filter(lambda x:x['id'] == id, farms))[0]
+
+    farm['title']=request.form['title']
+
+    if(request.form.get('unnasigned')):
+        farm['statut'] = 'unnasigned'
+    elif(request.form.get('in Progress')):
+        farm['statut'] = 'in Progress'
+    else:
+        farm['statut'] = 'unnasigned'
+
+    json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+
+    return redirect('/')
 
 @app.route("/farm/remove?<int:id>", methods=['GET'])
+def removeFarm(id):
+    print(id)
+    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = list(filter(lambda x:x['id'] != id, farms))
 
-@app.route("/farm/remove?<int:id>", methods=['POST'])
+    json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+
+    return redirect('/')
 
 @app.route("/farm/status?<int:id>", methods=['GET'])
 
@@ -80,7 +103,7 @@ def badd():
 
 @app.route("/builder/remove", methods=['GET'])
 
-@app.route("/builder/remove", methods=['POST'])
+
 
 @app.route("/builder/assign", methods=['GET'])
 
