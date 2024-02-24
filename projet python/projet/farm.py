@@ -128,7 +128,7 @@ def baddPOST():
 
     return redirect('/')
 
-@app.route("/builder/modify", methods=['GET'])
+@app.route("/builder/modify?<int:id>", methods=['GET'])
 def modifyBuilder(id):
     print(id)
     builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
@@ -136,15 +136,25 @@ def modifyBuilder(id):
     builder = list(filter(lambda x:x['id'] == id, builders))[0]
     return render_template('modifyBuilder.html', builder = builder)
 
-@app.route("/builder/modify", methods=['POST'])
+@app.route("/builder/modify?<int:id>", methods=['POST'])
+def modifyBuilderPOST(id):
+    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
 
-@app.route("/builder/remove", methods=['GET'])
+    builder = list(filter(lambda x:x['id'] == id, builders))[0]
+
+    builder['lname'] = request.form['last name']
+    builder['fname'] = request.form['first name']
+    builder['gamertag'] = request.form['gamertag']
+    builder['icon'] = request.form['icon']
+    builder['assigned to'].append(farms['title'])
+
+#@app.route("/builder/remove", methods=['GET'])
 
 
 
-@app.route("/builder/assign", methods=['GET'])
+#@app.route("/builder/assign", methods=['GET'])
 
-@app.route("/builder/assign", methods=['POST'])
+#@app.route("/builder/assign", methods=['POST'])
 
 
 app.run()
