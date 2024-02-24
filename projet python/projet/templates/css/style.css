@@ -23,6 +23,8 @@ button{
     background-color: #212121;
     border-radius: 5px;
     border:2px #212121 solid;
+    text-align: center;
+    padding:5px;
 }
 h1{
     position: relative;
@@ -49,7 +51,7 @@ h1{
     background-color:#a10505bf;
     top:45px;
     left:16px;
-    width:64px;
+    width:70px;
     z-index:1;
     border-radius:10px ;
     border:4px #212121 solid;
@@ -61,7 +63,7 @@ h1{
     background-color:#a10505bf;
     top:45px;
     left:16px;
-    width:64px;
+    width:70px;
     z-index:1;
     border-radius:10px ;
     border:4px #212121;
