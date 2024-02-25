@@ -186,4 +186,4 @@ def assignBilderPOST(id):
     json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
 
     return redirect('/')
-app.run()
+app.run(debug=True)
