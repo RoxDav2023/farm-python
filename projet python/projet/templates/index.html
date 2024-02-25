@@ -21,8 +21,9 @@
                         <div class="dropdownc1">
                             <table>
                                 <tbody>
-                                    <!-- {% for todo in todos %} -->
+                                    {% for farm in farms %}
                                     <tr>
+                                        <td><button><a href="{{ url_for('farmAdd') }}">Add</a></button></td>
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
                                     </tr>
                                     <tr>
@@ -32,9 +33,9 @@
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Remove</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Status</a></button></td>
+                                        <td><button><a href="{{ url_for('showstatus', id=farm.id) }}">Status</a></button></td>
                                     </tr>
-                                    <!-- {% endfor %} -->
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -46,9 +47,9 @@
                         <div class="dropdownc2">
                             <table>
                                 <tbody>
-                                    <!-- {% for todo in todos %} -->
+                                    {% for builder in builders %}
                                     <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
+                                        <td><button><a href="{{ url_for('builderAdd', id=builder.id) }}">Add</a></button></td>
                                     </tr>
                                     <tr>
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Edit</a></button></td>
@@ -59,7 +60,7 @@
                                     <tr>
                                         <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Assign</a></button></td>
                                     </tr>
-                                    <!-- {% endfor %} -->
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
