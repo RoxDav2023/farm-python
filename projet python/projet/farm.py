@@ -8,8 +8,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     return render_template('index.html', farms=farms, builders = builders)
 
 #Farms path
@@ -21,8 +21,8 @@ def farmAdd():
 @app.route("/farm/add", methods=['POST'])
 def farmAddPOST():
     
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     addfarmtobuilder = {}
 
     # creation d'un nouveau todo
@@ -33,7 +33,7 @@ def farmAddPOST():
     ## modification necessaire ##
     newfarm['employee'] = []
 
-    if (request.form.get['employee'] == json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))):
+    if (request.form.get['employee'] == json.load(open('projet python\\projet\\employes.json'))):
         newfarm['employee'] = newfarm['employee'].append(request.form.get['employee'])
 
     # la gestion du done est un peu plus compliquee...
@@ -51,21 +51,21 @@ def farmAddPOST():
     farms.append(newfarm)
 
     # on ecrase le fichier avec la liste mise a jour
-    json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+    json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
 
     return redirect('/')
 
 @app.route("/farm/modify?<int:id>", methods=['GET'])
 def modifyFarm(id):
     print(id)
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
 
     farm = list(filter(lambda x: x['id'] == id, farms))[0]
     return render_template('modifyFarm.html', farm=farm)
 
 @app.route("/farm/modify?<int:id>", methods=['POST'])
 def modifyFarmPOST(id):
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
 
     farm = list(filter(lambda x:x['id'] == id, farms))[0]
 
@@ -78,23 +78,23 @@ def modifyFarmPOST(id):
     else:
         farm['statut'] = 'unnasigned'
 
-    json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+    json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
 
     return redirect('/')
 
 @app.route("/farm/remove?<int:id>", methods=['GET'])
 def removeFarm(id):
     print(id)
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     farms = list(filter(lambda x:x['id'] != id, farms))
 
-    json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+    json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
 
     return redirect('/')
 
 @app.route("/farm/status?<int:id>")
 def showstatus():
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
 
     return render_template('statusFarm.html', farms = farms)
 
@@ -106,8 +106,8 @@ def builderAdd():
 
 @app.route("/builder/add", methods=['POST'])
 def builderAddPOST():    
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    builders = json.load(open('projet python\\projet\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
 
     # creation d'un nouveau todo
     farms={}
@@ -129,22 +129,22 @@ def builderAddPOST():
     builders.append(builder)
 
     # on ecrase le fichier avec la liste mise a jour
-    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+    json.dump(builders, open('projet python\\projet\\taches.json', 'w'))
 
     return redirect('/')
 
 @app.route("/builder/modify?<int:id>", methods=['GET'])
 def modifyBuilder(id):
     print(id)
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
 
     builder = list(filter(lambda x:x['id'] == id, builders))[0]
     return render_template('modifyBuilder.html', builder = builder)
 
 @app.route("/builder/modify?<int:id>", methods=['POST'])
 def modifyBuilderPOST(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     builder = list(filter(lambda x:x['id'] == id, builders))[0]
     farm={}
     farm['title'] = request.form['assigned to']
@@ -154,28 +154,28 @@ def modifyBuilderPOST(id):
     builder['icon'] = request.form['icon']
     builder['assigned to'].append(farms['title'])
 
-    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
+    json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
     return redirect('/')
 
 @app.route("/builder/remove?<int:id>", methods=['GET'])
 def removeBuilder(id):
-    builders=json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders=json.load(open('projet python\\projet\\employes.json'))
 
     builders = list(filter(lambda x:x['id'] != id, builders))
 
-    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
+    json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
 
     return redirect('/')
 @app.route("/builder/assign", methods=['GET'])
 def assignBuilder(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     builder = list(filter(lambda x:x['id'] == id, builders))[0]
 
     return render_template('assignBuilder.html', builder = builder)
 
 @app.route("/builder/assign", methods=['POST'])
 def assignBilderPOST(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     builder = list(filter(lambda x:x['id'] == id, builders))[0]
 
     if builder['assigned to'] <3:
@@ -183,7 +183,7 @@ def assignBilderPOST(id):
     else:
         print('this builder cannot be assigned more tasks')
     
-    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    json.dump(builders, open('projet python\\projet\\employes.json'))
 
     return redirect('/')
 app.run(debug=True)

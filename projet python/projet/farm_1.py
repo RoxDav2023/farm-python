@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     return render_template('index.html', farms=farms, builders=builders)
 
 # Farms path
@@ -19,7 +19,7 @@ def farmAdd():
 @app.route("/farm/add", methods=['POST'])
 def farmAddPOST():
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     addfarmtobuilder = {}
 
     # Creation d'un nouveau todo
@@ -29,7 +29,7 @@ def farmAddPOST():
     ## Modification necessaire ##
     newfarm['employee'] = []
 
-    if request.form.get('employee') in json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json')):
+    if request.form.get('employee') in json.load(open('projet python\\projet\\employes.json')):
         newfarm['employee'].append(request.form.get('employee'))
 
     # La gestion du done est un peu plus compliquee...
@@ -105,7 +105,7 @@ def builderAdd():
 
 @app.route("/builder/add", methods=['POST'])
 def builderAddPOST():
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
 
     builder = {}
@@ -118,14 +118,14 @@ def builderAddPOST():
     if len(builder['assigned_to']) < 3:
         builder['assigned_to'].append(request.form['assigned_to'])
         builders.append(builder)
-        json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
+        json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
         return redirect('/')
     else:
         return "This builder cannot be assigned more tasks", 400
 
 @app.route("/builder/modify/<int:id>", methods=['GET'])
 def modifyBuilder(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     if builder:
         return render_template('modifyBuilder.html', builder=builder)
@@ -134,7 +134,7 @@ def modifyBuilder(id):
 
 @app.route("/builder/modify/<int:id>", methods=['POST'])
 def modifyBuilderPOST(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     if builder:
         builder['lname'] = request.form['last name']
@@ -142,14 +142,14 @@ def modifyBuilderPOST(id):
         builder['gamertag'] = request.form['gamertag']
         builder['icon'] = request.form['icon']
 
-        json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
+        json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
         return redirect('/')
     else:
         return "Builder not found", 404
 
 @app.route("/builder/assign/<int:id>", methods=['GET'])
 def assignBuilder(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     if builder:
         return render_template('assignBuilder.html', builder=builder)
@@ -158,12 +158,12 @@ def assignBuilder(id):
 
 @app.route("/builder/assign/<int:id>", methods=['POST'])
 def assignBuilderPOST(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     if builder:
         if len(builder['assigned_to']) < 3:
             builder['assigned_to'].append(request.form['assigned_to'])
-            json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
+            json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
             return redirect('/')
         else:
             return "This builder cannot be assigned more tasks", 400
@@ -172,9 +172,9 @@ def assignBuilderPOST(id):
 
 @app.route("/builder/remove/<int:id>", methods=['GET'])
 def removeBuilder(id):
-    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     builders = [builder for builder in builders if builder['id'] != id]
-    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
+    json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
     return redirect('/')
 
 app.run(debug=True)
