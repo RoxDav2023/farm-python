@@ -14,7 +14,7 @@ def index():
 # Farms path
 @app.route("/farm/add", methods=['GET'])
 def farmAdd():
-    return render_template('addfarm.html')
+    return render_template('fadd.html')
 
 @app.route("/farm/add", methods=['POST'])
 def farmAddPOST():
