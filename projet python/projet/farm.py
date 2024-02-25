@@ -11,12 +11,14 @@ def index():
     builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
     return render_template('index.html', farms=farms, builders = builders)
 
+#Farms path
+
 @app.route("/farm/add", methods=['GET'])
-def fadd():
+def farmAdd():
     return render_template('addfarm.html')
 
 @app.route("/farm/add", methods=['POST'])
-def faddPOST():
+def farmAddPOST():
     
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
     builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
@@ -95,12 +97,14 @@ def showstatus():
 
     return render_template('statusFarm.html', farms = farms)
 
+#Builders path
+
 @app.route("/builder/add", methods=['GET'])
-def badd():
+def builderAdd():
     return render_template('addbuilder.html')
 
 @app.route("/builder/add", methods=['POST'])
-def baddPOST():    
+def builderAddPOST():    
     builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
     farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
 
