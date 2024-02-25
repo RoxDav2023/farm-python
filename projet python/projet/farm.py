@@ -119,7 +119,7 @@ def builderAddPOST():
     builder['icon'] = request.form['icon']
     builder['assigned to'] = []
     #verifie si plus que trois
-    if(builder['assigned to'].len()<3):
+    if(len(builder['assigned to'])<3):
         builder['assigned to'] = builder['assigned to'].append(farms['title'])
     else:
         print("this builder can not be assigned to any more tasks for the moment, please finish the task or reassign this builder before giving hime more tasks")
