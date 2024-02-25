@@ -175,3 +175,5 @@ def removeBuilder(id):
     builders = [builder for builder in builders if builder['id'] != id]
     json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
     return redirect('/')
+
+app.run(debug=True)
