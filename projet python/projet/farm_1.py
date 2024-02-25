@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Default route
 @app.route("/")
 def index():
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     builders = json.load(open('projet python\\projet\\employes.json'))
     return render_template('index.html', farms=farms, builders=builders)
 
@@ -18,7 +18,7 @@ def farmAdd():
 
 @app.route("/farm/add", methods=['POST'])
 def farmAddPOST():
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     builders = json.load(open('projet python\\projet\\employes.json'))
     addfarmtobuilder = {}
 
@@ -47,22 +47,22 @@ def farmAddPOST():
     farms.append(newfarm)
 
     # On ecrase le fichier avec la liste mise a jour
-    json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+    json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
 
     return redirect('/')
 
 @app.route("/farm/modify/<int:id>", methods=['GET'])
 def modifyFarm(id):
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     farm = next((farm for farm in farms if farm['id'] == id), None)
     if farm:
-        return render_template('modifyFarm.html', farm=farm)
+        return render_template('fedit.html', farm=farm)
     else:
         return "Farm not found", 404
 
 @app.route("/farm/modify/<int:id>", methods=['POST'])
 def modifyFarmPOST(id):
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     farm = next((farm for farm in farms if farm['id'] == id), None)
     if farm:
         farm['title'] = request.form['title']
@@ -75,24 +75,24 @@ def modifyFarmPOST(id):
             farm['statut'] = 'unnasigned'
         farm['description'] = request.form.get('description')
 
-        json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+        json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
         return redirect('/')
     else:
         return "Farm not found", 404
 
 @app.route("/farm/remove/<int:id>", methods=['GET'])
 def removeFarm(id):
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     farms = [farm for farm in farms if farm['id'] != id]
-    json.dump(farms, open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json', 'w'))
+    json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
     return redirect('/')
 
 @app.route("/farm/status/<int:id>", methods=['GET'])
 def showstatus(id):
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
     farm = next((farm for farm in farms if farm['id'] == id), None)
     if farm:
-        return render_template('statusFarm.html', farm=farm)
+        return render_template('fstatus.html', farm=farm)
     else:
         return "Farm not found", 404
 
@@ -101,12 +101,12 @@ def showstatus(id):
 # Builders path
 @app.route("/builder/add", methods=['GET'])
 def builderAdd():
-    return render_template('addbuilder.html')
+    return render_template('badd.html')
 
 @app.route("/builder/add", methods=['POST'])
 def builderAddPOST():
     builders = json.load(open('projet python\\projet\\employes.json'))
-    farms = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\taches.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
 
     builder = {}
     builder['lname'] = request.form['last name']
@@ -128,7 +128,7 @@ def modifyBuilder(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     if builder:
-        return render_template('modifyBuilder.html', builder=builder)
+        return render_template('bedit.html', builder=builder)
     else:
         return "Builder not found", 404
 
@@ -152,7 +152,7 @@ def assignBuilder(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     if builder:
-        return render_template('assignBuilder.html', builder=builder)
+        return render_template('bassign.html', builder=builder)
     else:
         return "Builder not found", 404
 
