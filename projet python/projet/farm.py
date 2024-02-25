@@ -154,12 +154,31 @@ def modifyBuilderPOST(id):
 
 @app.route("/builder/remove?<int:id>", methods=['GET'])
 def removeBuilder(id):
-    builders=json.load(open())
+    builders=json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
 
+    builders = list(filter(lambda x:x['id'] != id, builders))
 
-#@app.route("/builder/assign", methods=['GET'])
+    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json', 'w'))
 
-#@app.route("/builder/assign", methods=['POST'])
+    return redirect('/')
+@app.route("/builder/assign", methods=['GET'])
+def assignBuilder(id):
+    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builder = list(filter(lambda x:x['id'] == id, builders))[0]
 
+    return render_template('assignBuilder.html', builder = builder)
 
+@app.route("/builder/assign", methods=['POST'])
+def assignBilderPOST(id):
+    builders = json.load(open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+    builder = list(filter(lambda x:x['id'] == id, builders))[0]
+
+    if builder['assigned to'] <3:
+        builder['assigned to'].append(request.form['assigned to'])
+    else:
+        print('this builder cannot be assigned more tasks')
+    
+    json.dump(builders, open('projet python\\gestion_taches_v01\\gestion_taches\\employes.json'))
+
+    return redirect('/')
 app.run()
