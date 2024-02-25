@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farm Manager</title>
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
     <link rel="shortcut icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
@@ -12,7 +11,7 @@
 </head>
 <body>
     <div id="logo">
-        <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
+        <a href="index.html" id="link"><img src="image/logo.jpg" id="logo"></a>
     </div>
         <nav id="menu" class="navbar">
             <ul>
@@ -24,16 +23,16 @@
                                 <tbody>
                                     <!-- {% for todo in todos %} -->
                                     <tr>
-                                        <td><button><a href="{{ url_for('farmAdd', id=farm.id) }}">Add</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td><button><a href="{{ url_for('modifyFarm', id=farm.id) }}">Edit</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Edit</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td><button><a href="{{ url_for('removeFarm', id=farm.id) }}">Remove</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Remove</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td><button><a href="{{ url_for('showstatust', id=farm.id) }}">Status</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Status</a></button></td>
                                     </tr>
                                     <!-- {% endfor %} -->
                                 </tbody>
@@ -49,16 +48,16 @@
                                 <tbody>
                                     <!-- {% for todo in todos %} -->
                                     <tr>
-                                        <td><button><a href="{{ url_for('builderAdd', id=builder.id) }}">Add</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td><button><a href="{{ url_for('modifyBuilder', id=builder.id) }}">Edit</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Edit</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td><button><a href="{{ url_for('removeBuilder', id=builder.id) }}">Remove</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Remove</a></button></td>
                                     </tr>
                                     <tr>
-                                        <td><button><a href="{{ url_for('assignBuilder', id=builder.id) }}">Assign</a></button></td>
+                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Assign</a></button></td>
                                     </tr>
                                     <!-- {% endfor %} -->
                                 </tbody>
