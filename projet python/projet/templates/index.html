@@ -77,6 +77,8 @@
                         <th class="th">Description</th>
                         <th class="th">Status</th>
                         <th class="th">Builder Assigned</th>
+                        <th class="th">Edit</th>
+                        <th class="th">Remove</th>
                         
                     </tr>
                 </thead>
@@ -87,8 +89,8 @@
                         <td class="th">{{ farm.description }}</td>
                         <td class="th">{{ farm.statut }}</td>
                         <td class="th">{{ farm.employee }}</td>
-                        <th><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></th>
-                        <th><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></th>
+                        <th class="th"><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></th>
+                        <th class="th"><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></th>
                     </tr>
                     {% endfor %}
                 </tbody>
