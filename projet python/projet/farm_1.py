@@ -58,7 +58,7 @@ def modifyFarm(id):
     if farm:
         return render_template('fedit.html', farm=farm)
     else:
-        return "Farm not found", 404
+        return "Farm not found"
 
 @app.route("/farm/modify/<int:id>", methods=['POST'])
 def modifyFarmPOST(id):
@@ -78,7 +78,7 @@ def modifyFarmPOST(id):
         json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
         return redirect('/')
     else:
-        return "Farm not found", 404
+        return "Farm not found"
 
 @app.route("/farm/remove/<int:id>", methods=['GET'])
 def removeFarm(id):
@@ -94,7 +94,7 @@ def showstatus(id):
     if farm:
         return render_template('fstatus.html', farm=farm)
     else:
-        return "Farm not found", 404
+        return "Farm not found"
 
 #Builders Path
     
@@ -121,7 +121,7 @@ def builderAddPOST():
         json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
         return redirect('/')
     else:
-        return "This builder cannot be assigned more tasks", 400
+        return "This builder cannot be assigned more tasks"
 
 @app.route("/builder/modify/<int:id>", methods=['GET'])
 def modifyBuilder(id):
@@ -130,7 +130,7 @@ def modifyBuilder(id):
     if builder:
         return render_template('bedit.html', builder=builder)
     else:
-        return "Builder not found", 404
+        return "Builder not found"
 
 @app.route("/builder/modify/<int:id>", methods=['POST'])
 def modifyBuilderPOST(id):
@@ -145,7 +145,7 @@ def modifyBuilderPOST(id):
         json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
         return redirect('/')
     else:
-        return "Builder not found", 404
+        return "Builder not found"
 
 @app.route("/builder/assign/<int:id>", methods=['GET'])
 def assignBuilder(id):
@@ -154,7 +154,7 @@ def assignBuilder(id):
     if builder:
         return render_template('bassign.html', builder=builder)
     else:
-        return "Builder not found", 404
+        return "Builder not found"
 
 @app.route("/builder/assign/<int:id>", methods=['POST'])
 def assignBuilderPOST(id):
@@ -166,9 +166,9 @@ def assignBuilderPOST(id):
             json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
             return redirect('/')
         else:
-            return "This builder cannot be assigned more tasks", 400
+            return "This builder cannot be assigned more tasks"
     else:
-        return "Builder not found", 404
+        return "Builder not found"
 
 @app.route("/builder/remove/<int:id>", methods=['GET'])
 def removeBuilder(id):
