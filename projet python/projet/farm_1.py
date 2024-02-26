@@ -103,6 +103,8 @@ def showstatus(id):
 @app.route("/builder/add", methods=['GET'])
 def builderAdd():
     farms = json.load(open('projet python\\projet\\taches.json'))
+    for farm in farms:
+        print(farm)  # Print each farm dictionary for debugging
     return render_template('badd.html', farms=farms)
 
 @app.route("/builder/add", methods=['POST'])
