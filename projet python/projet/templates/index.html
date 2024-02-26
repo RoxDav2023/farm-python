@@ -77,6 +77,8 @@
                         <th class="th">Description</th>
                         <th class="th">Status</th>
                         <th class="th">Builder Assigned</th>
+                        <th><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></th>
+                        <th><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></th>
                     </tr>
                 </thead>
                 <tbody>
