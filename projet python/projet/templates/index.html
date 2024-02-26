@@ -73,36 +73,33 @@
             <table id="table1">
                 <thead>
                     <tr>
-                        <th class="th">title</th>
+                        <th class="th">Title</th>
                         <th class="th">Description</th>
-                        <th class="th">Statut</th>
-                        <th class="th">Builder assigned</th>
+                        <th class="th">Status</th>
+                        <th class="th">Builder Assigned</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for farm in farms %}
                     <tr>
-                        <th class="th">{{ farm.title }}</th>
-                        <th class="th">{{ farm.description }}</th>
-                        <th class="th">{{ farm.statut }}</th>
-                        <th class="th">{{ farm.employee }}</th>
+                        <td class="th">{{ farm.title }}</td>
+                        <td class="th">{{ farm.description }}</td>
+                        <td class="th">{{ farm.statut }}</td>
+                        <td class="th">{{ farm.employee }}</td>
                     </tr>
-
                     {% endfor %}
-
                 </tbody>
-                
-            </table >
-            <h3>Builder</h3>
+            </table>
+            
             <table id="table2">
                 <thead>
                     <tr>
                         <th class="th">Id</th>
-                        <th class="th">last name</th>
-                        <th class="th">first name</th>
-                        <th class="th">gamertag</th>
-                        <th class="th">icon</th>
-                        <th class="th">assigned to</th>
+                        <th class="th">Last Name</th>
+                        <th class="th">First Name</th>
+                        <th class="th">Gamertag</th>
+                        <th class="th">Icon</th>
+                        <th class="th">Assigned To</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -116,6 +113,7 @@
                         <td class="th">{{ builder.assigned_to }}</td>
                     </tr>
                     {% endfor %}
+                </tbody>
             </table>
 
         </div>
