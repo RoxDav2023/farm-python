@@ -144,11 +144,11 @@ def builderAddPOST():
     # else:
     #     return "This builder cannot be assigned more tasks"
         
-    assigned_to = request.form.getlist('assigned_to')
-    if assigned_to:
-        builder['assigned_to'] = assigned_to
-    else:
-        builder['assigned_to'] = []
+    builder['assigned_to'] = request.form.getlist('assigned_to')
+    # if assigned_to:
+    #     builder['assigned_to'] = assigned_to
+    # else:
+    #     builder['assigned_to'] = []
 
     if len(builder['assigned_to']) < 3:
         builders.append(builder)

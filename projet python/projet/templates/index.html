@@ -66,8 +66,12 @@
                     <td class="ligne">{{ builder.lname }}</td>
                     <td class="ligne">{{ builder.fname }}</td>
                     <td class="ligne">{{ builder.gamertag }}</td>
-                    <td class="ligne">{{ builder.icon }}</td>
-                    <td class="ligne">{{ builder.assigned_to }}</td>
+                    <td class="ligne"><img src="{{ url_for('static', filename=builder.icon) }}" alt="Avatar" style="width:50px;height:50px;"></td>
+                    <td class="ligne">
+                        {% for task in builder.assigned_to %}
+                            {{ task }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </td>
                     <td class="ligne"><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
                     <td class="ligne"><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
                     <td class="ligne"><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
