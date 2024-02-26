@@ -1,6 +1,7 @@
 from flask import Flask, redirect, render_template
 from flask import request
 import json
+import os
 
 app = Flask(__name__)
 
@@ -101,7 +102,8 @@ def showstatus(id):
 # Builders path
 @app.route("/builder/add", methods=['GET'])
 def builderAdd():
-    return render_template('badd.html')
+    farms = json.load(open('projet python\\projet\\taches.json'))
+    return render_template('badd.html', farms=farms)
 
 @app.route("/builder/add", methods=['POST'])
 def builderAddPOST():
@@ -109,14 +111,44 @@ def builderAddPOST():
     farms = json.load(open('projet python\\projet\\taches.json'))
 
     builder = {}
-    builder['lname'] = request.form['last name']
-    builder['fname'] = request.form['first name']
+    builder['lname'] = request.form['last_name']
+    builder['fname'] = request.form['first_name']
     builder['gamertag'] = request.form['gamertag']
-    builder['icon'] = request.form['icon']
-    builder['assigned_to'] = []
+    # builder['icon'] = request.form['icon']
+    
+    # Handle file upload
+    if 'icon' in request.files:
+        icon = request.files['icon']
+        if icon.filename != '':
+            image_dir = 'projet python\\projet\\image'
+            os.makedirs(image_dir, exist_ok=True)
+            icon_path = os.path.join(image_dir, icon.filename)
+            icon.save(icon_path)
+            builder['icon'] = icon_path
+    else:
+        builder['icon'] = None
+    
+    builder['id'] = (max(builders, key = lambda x: x['id'])['id'])+1
+
+    # builder['assigned_to'] = []
+
+
+
+    # if len(builder['assigned_to']) < 3:
+    #     builder['assigned_to'].append(request.form['assigned_to'])
+    #     builders.append(builder)
+    #     json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
+    #     return redirect('/')
+    # else:
+    #     return "This builder cannot be assigned more tasks"
+        
+    assigned_to = request.form.getlist('assigned_to')
+    if assigned_to:
+        builder['assigned_to'] = assigned_to
+    else:
+        builder['assigned_to'] = []
 
     if len(builder['assigned_to']) < 3:
-        builder['assigned_to'].append(request.form['assigned_to'])
         builders.append(builder)
         json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
         return redirect('/')
@@ -137,8 +169,8 @@ def modifyBuilderPOST(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     if builder:
-        builder['lname'] = request.form['last name']
-        builder['fname'] = request.form['first name']
+        builder['lname'] = request.form['last_name']
+        builder['fname'] = request.form['first_name']
         builder['gamertag'] = request.form['gamertag']
         builder['icon'] = request.form['icon']
 
