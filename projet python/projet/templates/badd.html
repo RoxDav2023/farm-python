@@ -27,7 +27,7 @@
         <label for="assigned_to">Assigned To (Up to 3 farms):</label><br>
         <select id="assigned_to" name="assigned_to[]" multiple size="3">
             {% for farm in farms %}
-                <option value="{{ farm.id }}">{{ farm.title }}</option>
+                <option>{{ farm['id'] }}</option>
             {% endfor %}
         </select><br>
         <input type="submit" value="Submit">
