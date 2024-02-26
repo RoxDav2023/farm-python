@@ -28,7 +28,7 @@ nav{
     text-align: center;
 }
 button{
-    background-color: #ffffff;
+    background-color: #efeeee;
     border-radius: 5px;
     border:2px #212121 solid;
     padding:5px;
@@ -45,40 +45,48 @@ a:hover{
 h1{
     position: relative;
     top: -12px;
+    color: #efeeee;
 }
 h2{
     font-size:3em;
-    text-align: center;
+    position: absolute;
+    left:852px ;
+    top:90px;
+    color: #efeeee;
 }
 h3{
     font-size:3em;
     position: absolute;
-    top:375px;
-    left:875px
+    top:420px;
+    left:850px;
+    color: #efeeee;
+    text-align: center;
 }
 
 
 table{
     border: 4px #a10505 solid;
     background-color: #212121;
-    color:#ffffff;
+    color:#efeeee;
     font-size:1.5em;
     text-align: center;
 
 }
 
-.th{
+.ligne{
     border:#ffffff;
     background-color: #a1050570;
 }
 
 #table1{
     position: absolute;
-    left:90px;
+    left:75px;
+    top:200px;
+    
 }
 
 #table2{
     position: absolute;
-    top:500px;
-    left:625px;
+    top:550px;
+    left:460px; 
 }
