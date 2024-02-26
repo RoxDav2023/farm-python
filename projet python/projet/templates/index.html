@@ -69,7 +69,26 @@
         </nav>
 
         <div>
-            <h1>allo</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>fname</th>
+                        <th>lname</th>
+                        <th>statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for todo in todos %}
+                    <tr>
+                        <td>{{ todo.id }}</td>
+                        <td>{{ todo.title }}</td>
+                        <td>{{ todo.done }}</td>
+                        <td><a href="{{ url_for('todosDelete', id=todo.id) }}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+            </table>
+
         </div>
 </body>
 </html>
