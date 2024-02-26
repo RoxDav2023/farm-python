@@ -20,17 +20,19 @@
                         <h1>Farm</h1>
                         <div class="dropdownc1">
                             <table>
-                                <thead>
-                                    <tr>
-                                        <th>Title</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
                                     {% for farm in farms %}
                                     <tr>
-                                        <td>{{ farm.title }}</td>
-                                        <td>{{ farm.statut }}</td>
+                                        <td><button><a href="{{ url_for('farmAdd') }}">Add</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('showstatus', id=farm['id']) }}">Status</a></button></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -43,25 +45,19 @@
                         <h1>Builder</h1>
                         <div class="dropdownc2">
                             <table>
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Last Name</th>
-                                        <th>First Name</th>
-                                        <th>Gamertag</th>
-                                        <th>Icon</th>
-                                        <th>Assigned To</th>
-                                    </tr>
-                                </thead>
                                 <tbody>
                                     {% for builder in builders %}
                                     <tr>
-                                        <td>{{ builder.id }}</td>
-                                        <td>{{ builder.lname }}</td>
-                                        <td>{{ builder.fname }}</td>
-                                        <td>{{ builder.gamertag }}</td>
-                                        <td>{{ builder.icon }}</td>
-                                        <td>{{ builder.assigned_to }}</td>
+                                        <td><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -71,5 +67,55 @@
                 </li>
             </ul>
         </nav>
+
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>Description</th>
+                        <th>Statut</th>
+                        <th>Builder assigned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tache in taches %}
+                    <tr>
+                        <th>{{ tache.title }}</th>
+                        <th>{{ tache.description }}</th>
+                        <th>{{ tache.statut }}</th>
+                        <th>{{ tache.employee }}</th>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+                
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>last name</th>
+                        <th>first name</th>
+                        <th>gamertag</th>
+                        <th>icon</th>
+                        <th>assigned to</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for builder in builders %}
+                    <tr>
+                        <td>{{ builder.id }}</td>
+                        <td>{{ builder.lname }}</td>
+                        <td>{{ builder.fname }}</td>
+                        <td>{{ builder.gamertag }}</td>
+                        <td>{{ builder.icon }}</td>
+                        <td>{{ builder.assigned to }}</td>
+                    </tr>
+                    {% endfor %}
+            </table>
+
+        </div>
 </body>
 </html>
