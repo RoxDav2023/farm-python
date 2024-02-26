@@ -15,7 +15,7 @@
         
     <div>
         <h2>Assign Farm to Builder</h2>
-        <form action="{{ url_for('assignFarmToBuilderPOST', builder_id=builder.id) }}" method="post">
+        <form action="{{ url_for('assignBuilderPOST', id=builder.id) }}" method="post">
             <label for="farm">Select a Farm:</label>
             <select name="farm" id="farm">
                 {% for farm in farms %}
