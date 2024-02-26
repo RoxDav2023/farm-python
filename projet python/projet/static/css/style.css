@@ -37,6 +37,16 @@ h1{
     position: relative;
     top: -12px;
 }
+h2{
+    font-size:3em;
+    text-align: center;
+}
+h3{
+    font-size:3em;
+    position: absolute;
+    top:375px;
+    left:875px
+}
 .dropdown{
     position:relative;
     display:block;
@@ -117,6 +127,8 @@ table{
     border: 4px #a10505 solid;
     background-color: #212121;
     color:#a10505;
+    font-size:1.5em;
+
 }
 
 .th{
@@ -125,9 +137,12 @@ table{
 }
 
 #table1{
-
+    position: absolute;
+    left:90px;
 }
 
 #table2{
-    
+    position: absolute;
+    top:500px;
+    left:625px;
 }
