@@ -13,117 +13,65 @@
     <div id="logo">
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div>
-        <nav id="menu" class="navbar">
-            <ul>
-                <li class="dropdown">
-                    <div>
-                        <h1>Farm</h1>
-                        <div class="dropdownc1">
-                            <table>
-                                <tbody>
-                                    {% for farm in farms %}
-                                    <tr>
-                                        <td><button><a href="{{ url_for('farmAdd') }}">Add</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('showstatus', id=farm['id']) }}">Status</a></button></td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <div>
-                        <h1>Builder</h1>
-                        <div class="dropdownc2">
-                            <table>
-                                <tbody>
-                                    {% for builder in builders %}
-                                    <tr>
-                                        <td><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        
+    <div>
+        <h2>Farm</h2>
+        <table id="table1">
+            <thead>
+                <tr>
+                    <th class="th">Title</th>
+                    <th class="th">Description</th>
+                    <th class="th">Status</th>
+                    <th class="th">Builder Assigned</th>
+                    <th class="th">Edit</th>
+                    <th class="th">Remove</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for farm in farms %}
+                <tr>
+                    <td class="th">{{ farm.title }}</td>
+                    <td class="th">{{ farm.description }}</td>
+                    <td class="th">{{ farm.statut }}</td>
+                    <td class="th">{{ farm.employee }}</td>
+                    <th class="th"><button><a href="{{ url_for('farmAdd') }}">Add</a></button></th>
+                    <th class="th"><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></th>
+                    <th class="th"><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></th>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h3>Builder</h3>
+        <table id="table2">
+            <thead>
+                <tr>
+                    <th class="th">Id</th>
+                    <th class="th">Last Name</th>
+                    <th class="th">First Name</th>
+                    <th class="th">Gamertag</th>
+                    <th class="th">Icon</th>
+                    <th class="th">Assigned To</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for builder in builders %}
+                <tr>
+                    <td class="th">{{ builder.id }}</td>
+                    <td class="th">{{ builder.lname }}</td>
+                    <td class="th">{{ builder.fname }}</td>
+                    <td class="th">{{ builder.gamertag }}</td>
+                    <td class="th">{{ builder.icon }}</td>
+                    <td class="th">{{ builder.assigned_to }}</td>
+                    <td><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
+                    <td><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
+                    <td><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
+                    <td><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
-        <div>
-            <h2>Farm</h2>
-            <table id="table1">
-                <thead>
-                    <tr>
-                        <th class="th">Title</th>
-                        <th class="th">Description</th>
-                        <th class="th">Status</th>
-                        <th class="th">Builder Assigned</th>
-                        <th class="th">Edit</th>
-                        <th class="th">Remove</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for farm in farms %}
-                    <tr>
-                        <td class="th">{{ farm.title }}</td>
-                        <td class="th">{{ farm.description }}</td>
-                        <td class="th">{{ farm.statut }}</td>
-                        <td class="th">{{ farm.employee }}</td>
-                        <th class="th"><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></th>
-                        <th class="th"><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></th>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-            <h3>Builder</h3>
-            <table id="table2">
-                <thead>
-                    <tr>
-                        <th class="th">Id</th>
-                        <th class="th">Last Name</th>
-                        <th class="th">First Name</th>
-                        <th class="th">Gamertag</th>
-                        <th class="th">Icon</th>
-                        <th class="th">Assigned To</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for builder in builders %}
-                    <tr>
-                        <td class="th">{{ builder.id }}</td>
-                        <td class="th">{{ builder.lname }}</td>
-                        <td class="th">{{ builder.fname }}</td>
-                        <td class="th">{{ builder.gamertag }}</td>
-                        <td class="th">{{ builder.icon }}</td>
-                        <td class="th">{{ builder.assigned_to }}</td>
-                        <td><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
-                        <td><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
-                        <td><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
-        </div>
+    </div>
 </body>
 </html>
