@@ -70,7 +70,30 @@
         </nav>
 
         <div>
-            <h1>allo</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>last name</th>
+                        <th>first name</th>
+                        <th>gamertag</th>
+                        <th>icon</th>
+                        <th>assigned to</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for builder in builders %}
+                    <tr>
+                        <td>{{ builder.id }}</td>
+                        <td>{{ builder.lname }}</td>
+                        <td>{{ builder.fname }}</td>
+                        <td>{{ builder.gamertag }}</td>
+                        <td>{{ builder.icon }}</td>
+                        <td>{{ builder.assigned to }}</td>
+                        <td><a href="{{ url_for('todosDelete', id=todo.id) }}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+            </table>
         </div>
 </body>
 </html>
