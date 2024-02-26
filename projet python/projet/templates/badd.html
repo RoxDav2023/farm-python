@@ -3,75 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Builder Add</title>
-    <link href="css\badd.css" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" href="image/logo.jpg">
-    <link rel="apple-touch-icon" href="image/logo.jpg">
-    <script src="js\monjs.js"></script>
-    
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
+    <script src="{{ url_for('static', filename='js/monjs.js') }}"></script>
+    <title>Add Builder</title>
 </head>
 <body>
     <div id="logo">
-        <a href="index.html" id="link"><img src="image/logo.jpg" id="logo"></a>
+        <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div>
-        <nav id="menu" class="navbar">
-            <ul>
-                <li class="dropdown">
-                    <div>
-                        <h1>Farm</h1>
-                        <div class="dropdownc1">
-                            <table>
-                                <tbody>
-                                    <!-- {% for todo in todos %} -->
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Edit</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Remove</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Status</a></button></td>
-                                    </tr>
-                                    <!-- {% endfor %} -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <div>
-                        <h1>Builder</h1>
-                        <div class="dropdownc2">
-                            <table>
-                                <tbody>
-                                    <!-- {% for todo in todos %} -->
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Edit</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Remove</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Assign</a></button></td>
-                                    </tr>
-                                    <!-- {% endfor %} -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+    
+    <h2>Add Builder</h2>
+    <form action="{{ url_for('builderAddPOST') }}" method="post" enctype="multipart/form-data">
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name"><br>
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name"><br>
+        <label for="gamertag">Gamertag:</label><br>
+        <input type="text" id="gamertag" name="gamertag"><br>
+        <label for="icon">Icon:</label><br>
+        <input type="file" id="icon" name="icon"><br>
+        <label for="assigned_to">Assigned To (Up to 3 farms):</label><br>
+        <select id="assigned_to" name="assigned_to[]" multiple size="3">
+            {% for farm in farms %}
+                <option value="{{ farm.id }}">{{ farm.title }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Submit">
+    </form>
 
-        <div>
-            <h1>allo</h1>
-        </div>
 </body>
 </html>
-
