@@ -112,3 +112,22 @@ h1{
 	display:inline-block;
 	
 }
+
+table{
+    border: 4px #a10505 solid;
+    background-color: #212121;
+    color:#a10505;
+}
+
+.th{
+    border:#a10505;
+    background-color: #ffffff;
+}
+
+#table1{
+
+}
+
+#table2{
+    
+}

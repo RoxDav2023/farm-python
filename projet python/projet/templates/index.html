@@ -69,49 +69,49 @@
         </nav>
 
         <div>
-            <table>
+            <table id="table1">
                 <thead>
                     <tr>
-                        <th>title</th>
-                        <th>Description</th>
-                        <th>Statut</th>
-                        <th>Builder assigned</th>
+                        <th class="th">title</th>
+                        <th class="th">Description</th>
+                        <th class="th">Statut</th>
+                        <th class="th">Builder assigned</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for farm in farms %}
                     <tr>
-                        <th>{{ farm.title }}</th>
-                        <th>{{ farm.description }}</th>
-                        <th>{{ farm.statut }}</th>
-                        <th>{{ farm.employee }}</th>
+                        <th class="th">{{ farm.title }}</th>
+                        <th class="th">{{ farm.description }}</th>
+                        <th class="th">{{ farm.statut }}</th>
+                        <th class="th">{{ farm.employee }}</th>
                     </tr>
 
                     {% endfor %}
 
                 </tbody>
                 
-            </table>
+            </table id="table2">
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>last name</th>
-                        <th>first name</th>
-                        <th>gamertag</th>
-                        <th>icon</th>
-                        <th>assigned to</th>
+                        <th class="th">Id</th>
+                        <th class="th">last name</th>
+                        <th class="th">first name</th>
+                        <th class="th">gamertag</th>
+                        <th class="th">icon</th>
+                        <th class="th">assigned to</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for builder in builders %}
                     <tr>
-                        <td>{{ builder.id }}</td>
-                        <td>{{ builder.lname }}</td>
-                        <td>{{ builder.fname }}</td>
-                        <td>{{ builder.gamertag }}</td>
-                        <td>{{ builder.icon }}</td>
-                        <td>{{ builder.assigned_to }}</td>
+                        <td class="th">{{ builder.id }}</td>
+                        <td class="th">{{ builder.lname }}</td>
+                        <td class="th">{{ builder.fname }}</td>
+                        <td class="th">{{ builder.gamertag }}</td>
+                        <td class="th">{{ builder.icon }}</td>
+                        <td class="th">{{ builder.assigned_to }}</td>
                     </tr>
                     {% endfor %}
             </table>
