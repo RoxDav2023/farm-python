@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
+    <script src="{{ url_for('static', filename='js/monjs.js') }}"></script>
+    
+</head>
+<body>
+    <div id="logo">
+        <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
+    </div>
+        <nav id="menu" class="navbar">
+            <ul>
+                <li class="dropdown">
+                    <div>
+                        <h1>Farm</h1>
+                        <div class="dropdownc1">
+                            <table>
+                                <tbody>
+                                    {% for farm in farms %}
+                                    <tr>
+                                        <td><button><a href="{{ url_for('farmAdd') }}">Add</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('showstatus', id=farm['id']) }}">Status</a></button></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <div>
+                        <h1>Builder</h1>
+                        <div class="dropdownc2">
+                            <table>
+                                <tbody>
+                                    {% for builder in builders %}
+                                    <tr>
+                                        <td><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
+                                    </tr>
+                                    <tr>
+                                        <td><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>fname</th>
+                        <th>lname</th>
+                        <th>statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for todo in todos %}
+                    <tr>
+                        <td>{{ taches.title }}</td>
+                        <td>{{ todo.title }}</td>
+                        <td>{{ todo.done }}</td>
+                    </tr>
+                    {% endfor %}
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>last name</th>
+                        <th>first name</th>
+                        <th>gamertag</th>
+                        <th>icon</th>
+                        <th>assigned to</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for builder in builders %}
+                    <tr>
+                        <td>{{ builder.id }}</td>
+                        <td>{{ builder.lname }}</td>
+                        <td>{{ builder.fname }}</td>
+                        <td>{{ builder.gamertag }}</td>
+                        <td>{{ builder.icon }}</td>
+                        <td>{{ builder.assigned to }}</td>
+                    </tr>
+                    {% endfor %}
+            </table>
+
+        </div>
+</body>
+</html>
+
