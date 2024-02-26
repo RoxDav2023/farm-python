@@ -70,7 +70,29 @@
         </nav>
 
         <div>
-            <h1>allo</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>title</th>
+                        <th>Description</th>
+                        <th>Statut</th>
+                        <th>Builder assigned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for farm in farms %}
+                    <tr>
+                        <th>{{ farm.title }}</th>
+                        <th>{{ farm.description }}</th>
+                        <th>{{ farm.statut }}</th>
+                        <th>{{ farm.employee }}</th>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+                
+            </table>
         </div>
 </body>
 </html>
