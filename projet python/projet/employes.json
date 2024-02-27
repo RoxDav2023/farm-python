@@ -5,10 +5,8 @@
         "fname": "Roxane",
         "gamertag": "QueenBTS23RD",
         "icon": "avatar1.png",
-        "assigned_to": [],
-        "assigned_farms": [
-            1,
-            5
+        "assigned_to": [
+            2
         ]
     },
     {
@@ -17,10 +15,7 @@
         "fname": "Danick",
         "gamertag": "DanThePro79",
         "icon": "avatar2.png",
-        "assigned_to": [],
-        "assigned_farms": [
-            2
-        ]
+        "assigned_to": []
     },
     {
         "id": 3,

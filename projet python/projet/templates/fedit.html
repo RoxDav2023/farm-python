@@ -18,19 +18,39 @@
         <label for="description">Description:</label><br>
         <textarea id="description" name="description">{{ farm['description'] }}</textarea><br><br>
         
-        <input type="radio" id="Unassigned" name="status" value="Unassigned" {% if farm.statut == 'Unassigned' %} checked {% endif %}>
-        <label for="Unassigned">Unassigned</label><br><br>
-
-        <label for="inProgress">In Progress:</label><br>
-        <select id="inProgress" name="status">
-            <option value="">Unassigned</option>
-            {% for builder in builders %}
-                <option value="{{ builder.id }}" {% if farm.statut == 'in Progress' and farm.employee == builder.id %} selected {% endif %}>{{ builder.fname }} {{ builder.lname }}</option>
-            {% endfor %}
-        </select><br><br>
+        <input type="radio" id="unassigned" name="status" value="Unassigned" {% if farm.statut == 'Unassigned' %} checked {% endif %}>
+        <label for="unassigned">Unassigned</label><br><br>
 
         <input type="radio" id="done" name="status" value="Done" {% if farm.statut == 'Done' %} checked {% endif %}>
         <label for="done">Done</label><br><br>
+
+        <input type="radio" id="inProgress" name="status" value="In Progress" {% if farm.statut == 'In Progress' %} checked {% endif %}>
+        <label for="inProgress">In Progress</label><br><br>
+
+        <div id="builderSelection" style="display: none;">
+            <label for="builder">Select a Builder:</label>
+            <select id="builder" name="builder">
+                {% for builder in builders %}
+                    <option value="{{ builder.id }}">{{ builder.fname }} {{ builder.lname }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <script>
+            document.getElementById("inProgress").addEventListener("change", function() {
+                if (this.checked) {
+                    var confirmInProgress = confirm("Are you sure you want to mark this farm as 'In Progress'? This will assign it to a builder.");
+                    if (confirmInProgress) {
+                        document.getElementById("builderSelection").style.display = "block";
+                    } else {
+                        document.getElementById("unassigned").checked = true;
+                        document.getElementById("builderSelection").style.display = "none";
+                    }
+                }
+            });
+        </script>
+
+
         
         <input type="submit" value="Submit">
     </form>

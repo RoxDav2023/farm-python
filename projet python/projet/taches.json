@@ -4,34 +4,37 @@
         "title": "Cobblestone",
         "description": "cobblestone generator for the world",
         "statut": "unnasigned",
-        "employee": 1
+        "employee": []
     },
     {
         "id": 2,
         "title": "Iron Farm",
         "description": "a simple farm using villagers to summon iron golems",
-        "statut": "unnasigned",
-        "employee": 2
+        "statut": "In Progress",
+        "employee": [
+            1
+        ]
     },
     {
         "id": 3,
         "title": "Blaze Farm",
         "description": "a farm to get lots of blaze rods",
-        "statut": "in Progress",
-        "employee": 1
+        "statut": "Done",
+        "employee": []
     },
     {
         "id": 4,
         "title": "Pillager Farm",
         "description": "a Farm to get emeralds, iron, totems of undying and enchanting books",
-        "statut": "done",
+        "statut": "Done",
         "employee": []
     },
     {
         "id": 5,
         "title": "hahahahahhaut",
-        "employee": [],
-        "statut": "Unassigned",
-        "description": "dfl;gjn;dfljgkv.,dfv12344"
+        "statut": "Done",
+        "description": "dfl;gjn;dfljgkv.,dfv12344",
+        "status": "In Progress",
+        "employee": []
     }
 ]

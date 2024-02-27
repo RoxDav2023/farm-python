@@ -74,8 +74,10 @@ def modifyFarmPOST(id):
         new_builder_id = request.form.get('builder')
         if new_builder_id:
             new_builder_id = int(new_builder_id)
-            if new_builder_id not in farm.get('employee', []):
-                farm.setdefault('employee', []).append(new_builder_id)
+            if farm['employee'] is None:
+                farm['employee'] = []
+            if new_builder_id not in farm['employee']:
+                farm['employee'].append(new_builder_id)
         else:
             farm['employee'] = []
         
@@ -86,24 +88,29 @@ def modifyFarmPOST(id):
         elif status == 'Done':
             farm['statut'] = 'Done'
             farm['employee'] = []  # Clear assigned builders when Done
-        elif status:  # Assuming status corresponds to builder ID
-            in_progress_id = int(status)
-            farm['statut'] = 'in Progress'
-            farm['employee'] = [in_progress_id]
-            
+        elif status == 'In Progress':
+            farm['statut'] = 'In Progress'
+            in_progress_id = request.form.get('builder')
+            if in_progress_id:
+                in_progress_id = int(in_progress_id)
+                farm['employee'] = [in_progress_id]
+                
+                # Update builder's assigned farms list with the farm ID in progress
+                builder = next((builder for builder in builders if builder['id'] == in_progress_id), None)
+                if builder:
+                    if 'assigned_to' not in builder:
+                        builder['assigned_to'] = []
+                    builder['assigned_to'].append(farm['id'])
+
         with open('projet python\\projet\\taches.json', 'w') as f:
             json.dump(farms, f, indent=4)
+        
+        with open('projet python\\projet\\employes.json', 'w') as f:
+            json.dump(builders, f, indent=4)
         
         return redirect('/')
     else:
         return "Farm not found"
-
-
-
-
-
-
-
 
 
 
