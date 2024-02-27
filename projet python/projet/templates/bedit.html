@@ -7,22 +7,19 @@
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
 </head>
 <body>
-    <div id="logo">
+    <!-- <div id="logo">
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
-    </div>
-    <h2>Edit Farm</h2>
-    <form action="{{ url_for('modifyFarmPOST', id=farm['id']) }}" method="POST">
-        <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" value="{{ farm['title'] }}"><br><br>
-        
-        <label for="description">Description:</label><br>
-        <textarea id="first_name" name="description">{{ farm['description'] }}</textarea><br><br>
+    </div> -->
+    <h2>Edit Builder</h2>
+    <form action="{{ url_for('modifyBuilderPOST', id=builder['id']) }}" method="POST">
+        <label for="title">Name/Gamertag:</label><br>
+        <input type="text" id="title" name="title" value="{{ builder['gamertag'] }}"><br><br>
 
-        <div id="builderSelection" style="display: none;">
-            <label for="builder">Select a Builder:</label>
-            <select id="builder" name="builder">
-                {% for builder in builders %}
-                    <option value="{{ builder.id }}">{{ builder.fname }} {{ builder.lname }}</option>
+        <div id="farmSelection" style="display: none;">
+            <label for="farm">Select a Farm:</label>
+            <select id="farm" name="farm">
+                {% for farm in farms %}
+                    <option value="{{ farm.title }}">{{ farm.title }}</option>
                 {% endfor %}
             </select>
         </div>
