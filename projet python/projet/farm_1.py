@@ -85,15 +85,31 @@ def modifyFarmPOST(id):
         if status == 'Unassigned':
             farm['statut'] = 'Unassigned'
             farm['employee'] = []  # Clear assigned builders when Unassigned
+            # Remove farm ID from assigned_to field of all builders
+            for builder in builders:
+                if farm['id'] in builder.get('assigned_to', []):
+                    builder['assigned_to'].remove(farm['id'])
         elif status == 'Done':
             farm['statut'] = 'Done'
             farm['employee'] = []  # Clear assigned builders when Done
+            # Remove farm ID from assigned_to field of all builders
+            for builder in builders:
+                if farm['id'] in builder.get('assigned_to', []):
+                    builder['assigned_to'].remove(farm['id'])
         elif status == 'In Progress':
             farm['statut'] = 'In Progress'
             in_progress_id = request.form.get('builder')
             if in_progress_id:
                 in_progress_id = int(in_progress_id)
+                previous_builder_id = farm.get('employee')
                 farm['employee'] = [in_progress_id]
+                
+                # Remove farm ID from assigned_to field of previous builder
+                if previous_builder_id:
+                    previous_builder = next((builder for builder in builders if builder['id'] == previous_builder_id), None)
+                    if previous_builder:
+                        if farm['id'] in previous_builder.get('assigned_to', []):
+                            previous_builder['assigned_to'].remove(farm['id'])
                 
                 # Update builder's assigned farms list with the farm ID in progress
                 builder = next((builder for builder in builders if builder['id'] == in_progress_id), None)
@@ -101,6 +117,12 @@ def modifyFarmPOST(id):
                     if 'assigned_to' not in builder:
                         builder['assigned_to'] = []
                     builder['assigned_to'].append(farm['id'])
+            else:
+                farm['employee'] = []  # Clear assigned builders when In Progress
+                # Remove farm ID from assigned_to field of all builders
+                for builder in builders:
+                    if farm['id'] in builder.get('assigned_to', []):
+                        builder['assigned_to'].remove(farm['id'])
 
         with open('projet python\\projet\\taches.json', 'w') as f:
             json.dump(farms, f, indent=4)
@@ -111,6 +133,9 @@ def modifyFarmPOST(id):
         return redirect('/')
     else:
         return "Farm not found"
+
+
+
 
 
 

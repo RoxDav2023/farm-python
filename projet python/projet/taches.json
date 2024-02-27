@@ -10,17 +10,17 @@
         "id": 2,
         "title": "Iron Farm",
         "description": "a simple farm using villagers to summon iron golems",
-        "statut": "In Progress",
-        "employee": [
-            2
-        ]
+        "statut": "Done",
+        "employee": []
     },
     {
         "id": 3,
         "title": "Blaze Farm",
         "description": "a farm to get lots of blaze rods",
-        "statut": "Done",
-        "employee": []
+        "statut": "In Progress",
+        "employee": [
+            3
+        ]
     },
     {
         "id": 4,
@@ -32,7 +32,7 @@
     {
         "id": 5,
         "title": "hahahahahhaut",
-        "statut": "Done",
+        "statut": "Unassigned",
         "description": "dfl;gjn;dfljgkv.,dfv12344",
         "status": "In Progress",
         "employee": []
