@@ -13,7 +13,19 @@
     <h2>Edit Builder</h2>
     <form action="{{ url_for('modifyBuilderPOST', id=builder['id']) }}" method="POST">
         <label for="title">Name/Gamertag:</label><br>
-        <input type="text" id="" name="title" value="{{ builder['gamertag'] }}"><br><br>
+        <input type="text" id="gamertag" name="gamertag" value="{{ builder['gamertag'] }}"><br><br>
+
+        <label for="title">Assigned to:</label><br>
+        <input type="text" id="assigned_to" name="assigned_to" value="{{ builder['assigned_to'] }}"><br><br>
+
+        <label for="title">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" value="{{ builder['fname'] }}"><br><br>
+
+        <label for="title">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" value="{{ builder['lname'] }}"><br><br>
+
+        <label for="title">Icon:</label><br>
+        <input type="file" id="icon" name="icon" value="{{ builder['icon'] }}"><br><br>
 
         <div id="farmSelection" style="display: none;">
             <label for="farm">Select a Farm:</label>
