@@ -267,9 +267,9 @@ def assignBuilderPOST(id):
             assigned_farm['employee'] = builder['id']
             
             # Add farm ID to the builder's assigned farms list
-            if 'assigned_farms' not in builder:
-                builder['assigned_farms'] = []
-            builder['assigned_farms'].append(assigned_farm['id'])
+            if 'assigned_to' not in builder:
+                builder['assigned_to'] = []
+            builder['assigned_to'].append(assigned_farm['id'])
 
             # Save the updated farms list back to the taches.json file
             with open('projet python\\projet\\taches.json', 'w') as f:

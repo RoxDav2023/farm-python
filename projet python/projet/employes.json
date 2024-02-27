@@ -5,7 +5,9 @@
         "fname": "Roxane",
         "gamertag": "QueenBTS23RD",
         "icon": "avatar1.png",
-        "assigned_to": []
+        "assigned_to": [
+            1
+        ]
     },
     {
         "id": 2,
@@ -22,7 +24,6 @@
         "gamertag": "Prof_X_01",
         "icon": "avatar3.png",
         "assigned_to": [
-            
             3
         ]
     },
