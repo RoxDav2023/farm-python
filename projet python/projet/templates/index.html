@@ -32,6 +32,7 @@
             <tbody>
                 {% for farm in farms %}
                 <tr>
+                    <td class="ligne">{{ farm.id }}</td>
                     <td class="ligne">{{ farm.title }}</td>
                     <td class="ligne">{{ farm.description }}</td>
                     <td class="ligne">{{ farm.statut }}</td>

@@ -15,7 +15,9 @@
         "fname": "Danick",
         "gamertag": "DanThePro79",
         "icon": "avatar2.png",
-        "assigned_to": []
+        "assigned_to": [
+            2
+        ]
     },
     {
         "id": 3,
