@@ -13,11 +13,11 @@
     <h2>Edit Builder</h2>
     <form action="{{ url_for('modifyBuilderPOST', id=builder['id']) }}" method="POST">
         <label for="title">Name/Gamertag:</label><br>
-        <input type="text" id="title" name="title" value="{{ builder['gamertag'] }}"><br><br>
+        <input type="text" id="" name="title" value="{{ builder['gamertag'] }}"><br><br>
 
         <div id="farmSelection" style="display: none;">
             <label for="farm">Select a Farm:</label>
-            <select id="farm" name="farm">
+            <select id="title" name="title">
                 {% for farm in farms %}
                     <option value="{{ farm.title }}">{{ farm.title }}</option>
                 {% endfor %}
