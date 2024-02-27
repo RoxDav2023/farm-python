@@ -6,7 +6,8 @@
         "gamertag": "QueenBTS23RD",
         "icon": "avatar1.png",
         "assigned_to": [
-            1
+            1,
+            2
         ]
     },
     {
@@ -15,7 +16,9 @@
         "fname": "Danick",
         "gamertag": "DanThePro79",
         "icon": "avatar2.png",
-        "assigned_to": []
+        "assigned_to": [
+            4
+        ]
     },
     {
         "id": 3,
@@ -33,6 +36,8 @@
         "fname": "Maxime",
         "gamertag": "PandaLag77777",
         "icon": "avatar4.png",
-        "assigned_to": []
+        "assigned_to": [
+            5
+        ]
     }
 ]

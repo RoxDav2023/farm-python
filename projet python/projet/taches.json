@@ -4,14 +4,18 @@
         "title": "Cobblestone",
         "description": "cobblestone generator for the world",
         "statut": "unnasigned",
-        "employee": 1
+        "employee": [
+            1
+        ]
     },
     {
         "id": 2,
         "title": "Iron Farm",
         "description": "a simple farm using villagers to summon iron golems",
         "statut": "Done",
-        "employee": []
+        "employee": [
+            1
+        ]
     },
     {
         "id": 3,
@@ -27,7 +31,9 @@
         "title": "Pillager Farm",
         "description": "a Farm to get emeralds, iron, totems of undying and enchanting books",
         "statut": "Done",
-        "employee": []
+        "employee": [
+            2
+        ]
     },
     {
         "id": 5,
@@ -35,6 +41,8 @@
         "statut": "Unassigned",
         "description": "dfl;gjn;dfljgkv.,dfv12344",
         "status": "In Progress",
-        "employee": []
+        "employee": [
+            4
+        ]
     }
 ]
