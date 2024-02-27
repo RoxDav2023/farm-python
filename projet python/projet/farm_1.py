@@ -55,31 +55,58 @@ def farmAddPOST():
 @app.route("/farm/modify/<int:id>", methods=['GET'])
 def modifyFarm(id):
     farms = json.load(open('projet python\\projet\\taches.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     farm = next((farm for farm in farms if farm['id'] == id), None)
     if farm:
-        return render_template('fedit.html', farm=farm)
+        return render_template('fedit.html', farm=farm, builders=builders)
     else:
         return "Farm not found"
 
 @app.route("/farm/modify/<int:id>", methods=['POST'])
 def modifyFarmPOST(id):
     farms = json.load(open('projet python\\projet\\taches.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
     farm = next((farm for farm in farms if farm['id'] == id), None)
     if farm:
         farm['title'] = request.form['title']
-        if request.form.get('done'):
-            farm['statut'] = 'done'
-            farm['employee'] = []
-        elif request.form.get('in Progress'):
-            farm['statut'] = 'in Progress'
-        else:
-            farm['statut'] = 'unnasigned'
         farm['description'] = request.form.get('description')
-
-        json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
+        
+        new_builder_id = request.form.get('builder')
+        if new_builder_id:
+            new_builder_id = int(new_builder_id)
+            if new_builder_id not in farm.get('employee', []):
+                farm.setdefault('employee', []).append(new_builder_id)
+        else:
+            farm['employee'] = []
+        
+        status = request.form.get('status')
+        if status == 'Unassigned':
+            farm['statut'] = 'Unassigned'
+            farm['employee'] = []  # Clear assigned builders when Unassigned
+        elif status == 'Done':
+            farm['statut'] = 'Done'
+            farm['employee'] = []  # Clear assigned builders when Done
+        elif status:  # Assuming status corresponds to builder ID
+            in_progress_id = int(status)
+            farm['statut'] = 'in Progress'
+            farm['employee'] = [in_progress_id]
+            
+        with open('projet python\\projet\\taches.json', 'w') as f:
+            json.dump(farms, f, indent=4)
+        
         return redirect('/')
     else:
         return "Farm not found"
+
+
+
+
+
+
+
+
+
+
 
 @app.route("/farm/remove/<int:id>", methods=['GET'])
 def removeFarm(id):

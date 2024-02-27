@@ -3,31 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
-    <link rel="apple-touch-icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
-    <script src="{{ url_for('static', filename='js/monjs.js') }}"></script>
     <title>Edit Farm</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
 </head>
 <body>
     <div id="logo">
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div>
-    
     <h2>Edit Farm</h2>
-    <form action="{{ url_for('modifyFarmPOST', id=farm.id) }}" method="post">
+    <form action="{{ url_for('modifyFarmPOST', id=farm['id']) }}" method="POST">
         <label for="title">Title:</label><br>
-        <input type="text" id="title" name="title" value="{{ farm.title }}"><br>
+        <input type="text" id="title" name="title" value="{{ farm['title'] }}"><br><br>
+        
         <label for="description">Description:</label><br>
-        <textarea id="description" name="description">{{ farm.description }}</textarea><br>
-        <label for="status">Status:</label><br>
-        <select id="status" name="status">
-            <option value="done" {% if farm.statut == 'done' %} selected {% endif %}>Done</option>
-            <option value="in_progress" {% if farm.statut == 'in Progress' %} selected {% endif %}>In Progress</option>
-            <option value="unassigned" {% if farm.statut == 'unnasigned' %} selected {% endif %}>Unassigned</option>
-        </select><br>
+        <textarea id="description" name="description">{{ farm['description'] }}</textarea><br><br>
+        
+        <input type="radio" id="Unassigned" name="status" value="Unassigned" {% if farm.statut == 'Unassigned' %} checked {% endif %}>
+        <label for="Unassigned">Unassigned</label><br><br>
+
+        <label for="inProgress">In Progress:</label><br>
+        <select id="inProgress" name="status">
+            <option value="">Unassigned</option>
+            {% for builder in builders %}
+                <option value="{{ builder.id }}" {% if farm.statut == 'in Progress' and farm.employee == builder.id %} selected {% endif %}>{{ builder.fname }} {{ builder.lname }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="radio" id="done" name="status" value="Done" {% if farm.statut == 'Done' %} checked {% endif %}>
+        <label for="done">Done</label><br><br>
+        
         <input type="submit" value="Submit">
     </form>
-
 </body>
 </html>
