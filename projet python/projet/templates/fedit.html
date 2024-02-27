@@ -39,7 +39,7 @@
         <script>
             document.getElementById("inProgress").addEventListener("change", function() {
                 if (this.checked) {
-                    var confirmInProgress = confirm("Are you sure you want to mark this farm as 'In Progress'? This will assign it to a builder.");
+                    var confirmInProgress = confirm("Marking this farm as 'In Progress' will require you to assign a builder to the farm, are you sure you want to do this? This will also assign the farm it to the selected builder.");
                     if (confirmInProgress) {
                         document.getElementById("builderSelection").style.display = "block";
                     } else {
