@@ -27,13 +27,12 @@ def farmAddPOST():
     newfarm =  {}
     newfarm['title'] = request.form['title']
     # Gestion des employes assignes
-    ## Modification necessaire ##
+    
     newfarm['employee'] = []
 
     if request.form.get('employee') in json.load(open('projet python\\projet\\employes.json')):
         newfarm['employee'].append(request.form.get('employee'))
 
-    # La gestion du done est un peu plus compliquee...
     if request.form.get('done'):
         newfarm['statut'] = 'done'
         newfarm['employee'].clear()
@@ -48,7 +47,7 @@ def farmAddPOST():
     farms.append(newfarm)
 
     # On ecrase le fichier avec la liste mise a jour
-    json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
+    json.dump(farms, open('projet python\\projet\\taches.json', 'w'), indent=4)
 
     return redirect('/')
 
@@ -144,7 +143,7 @@ def modifyFarmPOST(id):
 def removeFarm(id):
     farms = json.load(open('projet python\\projet\\taches.json'))
     farms = [farm for farm in farms if farm['id'] != id]
-    json.dump(farms, open('projet python\\projet\\taches.json', 'w'))
+    json.dump(farms, open('projet python\\projet\\taches.json', 'w'), indent=4)
     return redirect('/')
 
 @app.route("/farm/status/<int:id>", methods=['GET'])
@@ -191,27 +190,12 @@ def builderAddPOST():
     
     builder['id'] = (max(builders, key = lambda x: x['id'])['id'])+1
 
-    # builder['assigned_to'] = []
-
-
-
-    # if len(builder['assigned_to']) < 3:
-    #     builder['assigned_to'].append(request.form['assigned_to'])
-    #     builders.append(builder)
-    #     json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
-    #     return redirect('/')
-    # else:
-    #     return "This builder cannot be assigned more tasks"
-        
     builder['assigned_to'] = request.form.getlist('assigned_to')
-    # if assigned_to:
-    #     builder['assigned_to'] = assigned_to
-    # else:
-    #     builder['assigned_to'] = []
+
 
     if len(builder['assigned_to']) < 3:
         builders.append(builder)
-        json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
+        json.dump(builders, open('projet python\\projet\\employes.json', 'w'), indent=4)
         return redirect('/')
     else:
         return "This builder cannot be assigned more tasks"
@@ -220,35 +204,30 @@ def builderAddPOST():
 def modifyBuilder(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
-    if builder:
-        return render_template('bedit.html', builder=builder)
-    else:
-        return "Builder not found"
+    return render_template('bedit.html', builder=builder)
 
 @app.route("/builder/modify/<int:id>", methods=['POST'])
 def modifyBuilderPOST(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
-    if builder:
-        builder['lname'] = request.form['last_name']
-        builder['fname'] = request.form['first_name']
-        builder['gamertag'] = request.form['gamertag']
-        builder['icon'] = request.form['icon']
+    
+    builder['lname'] = request.form['last_name']
+    builder['fname'] = request.form['first_name']
+    builder['gamertag'] = request.form['gamertag']
+    builder['icon'] = request.form['icon']
 
-        json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
-        return redirect('/')
-    else:
-        return "Builder not found"
+    json.dump(builders, open('projet python\\projet\\employes.json', 'w'), indent=4)
+    return redirect('/')
+
 
 @app.route("/builder/assign/<int:id>", methods=['GET'])
 def assignBuilder(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     farms = json.load(open('projet python\\projet\\taches.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
-    if builder:
-        return render_template('bassign.html', builder=builder, farms=farms)
-    else:
-        return "Builder not found"
+
+    return render_template('bassign.html', builder=builder, farms=farms)
+
 
 
 @app.route("/builder/assign/<int:id>", methods=['POST'])
@@ -257,39 +236,35 @@ def assignBuilderPOST(id):
     farms = json.load(open('projet python\\projet\\taches.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
     
-    if builder:
-        farm_name = request.form['farm']  # Get the selected farm name from the form
+    farm_name = request.form['farm']  # Get the selected farm name from the form
 
         # Find the farm by its name
-        assigned_farm = next((farm for farm in farms if farm.get('title') == farm_name), None)
-        if assigned_farm:
-            # Update the farm's employee field with the builder's ID
-            assigned_farm['employee'].append(builder['id'])
-            
-            # Add farm ID to the builder's assigned farms list
-            if 'assigned_to' not in builder:
-                builder['assigned_to'] = []
-            builder['assigned_to'].append(assigned_farm['id'])
+    assigned_farm = next((farm for farm in farms if farm.get('title') == farm_name), None)
+    
+    # Update the farm's employee field with the builder's ID
+    assigned_farm['employee'].append(builder['id'])
+    
+    # Add farm ID to the builder's assigned farms list
+    if 'assigned_to' not in builder:
+        builder['assigned_to'] = []
+    builder['assigned_to'].append(assigned_farm['id'])
 
-            # Save the updated farms list back to the taches.json file
-            with open('projet python\\projet\\taches.json', 'w') as f:
-                json.dump(farms, f, indent=4)
+    # Save the updated farms list back to the taches.json file
+    with open('projet python\\projet\\taches.json', 'w') as t:
+        json.dump(farms, t, indent=4)
 
-            # Save the updated builders list back to the employes.json file
-            with open('projet python\\projet\\employes.json', 'w') as f:
-                json.dump(builders, f, indent=4)
+    # Save the updated builders list back to the employes.json file
+    with open('projet python\\projet\\employes.json', 'w') as e:
+        json.dump(builders, e, indent=4)
 
-            return redirect('/')  # Redirect to the home page after assigning the farm
-        else:
-            return "Farm not found"
-    else:
-        return "Builder not found"
+    return redirect('/')  # Redirect to the home page after assigning the farm
+
 
 @app.route("/builder/remove/<int:id>", methods=['GET'])
 def removeBuilder(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builders = [builder for builder in builders if builder['id'] != id]
-    json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
+    json.dump(builders, open('projet python\\projet\\employes.json', 'w'), indent=4)
     return redirect('/')
 
 app.run(debug=True)
