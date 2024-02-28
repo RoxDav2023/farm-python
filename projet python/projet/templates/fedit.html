@@ -10,6 +10,7 @@
     <!-- <div id="logo">
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div> -->
+    <div>
     <h2>Edit Farm</h2>
     <form action="{{ url_for('modifyFarmPOST', id=farm['id']) }}" method="POST">
         <label for="title">Title:</label><br>
@@ -54,5 +55,6 @@
         
         <input type="submit" value="Submit">
     </form>
+</div>
 </body>
 </html>
