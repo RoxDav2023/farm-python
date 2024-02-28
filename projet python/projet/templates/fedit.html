@@ -11,6 +11,12 @@
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div> -->
     <div>
+        <a href="{{ url_for('builderAdd') }}">add builder</a>
+        <a href="{{ url_for('farmAdd') }}">add farm</a>
+        <a href="{{ url_for('builder') }}">builder</a>   
+        <a href="{{ url_for('farm') }}">farm</a>  
+    </div>
+    <div>
     <h2>Edit Farm</h2>
     <form action="{{ url_for('modifyFarmPOST', id=farm['id']) }}" method="POST">
         <label for="title">Title:</label><br>

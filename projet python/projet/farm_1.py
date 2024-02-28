@@ -15,8 +15,8 @@ def index():
 # Farms path
 @app.route('/farm')
 def farm():
-    
-    return render_template('farm.html')
+    farms = json.load(open('projet python\\projet\\taches.json'))
+    return render_template('farm.html', farms = farms)
 @app.route("/farm/add", methods=['GET'])
 def farmAdd():
     return render_template('fadd.html')
