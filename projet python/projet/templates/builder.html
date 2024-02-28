@@ -55,7 +55,7 @@
                 <td class="ligne"><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
                 <td class="ligne"><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
                 <td class="ligne"><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
-                <td class="ligne"><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
+                <td class="ligne"><button onclick="message()"><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
             </tr>
             {% endfor %}
         </tbody>
