@@ -159,8 +159,8 @@ def showstatus(id):
 # Builders path
 @app.route('/builder')
 def builder():
-
-    return render_template('builder.html') 
+    builders = json.load(open('projet python\\projet\\employes.json'))
+    return render_template('builder.html', builders=builders) 
 
 @app.route("/builder/add", methods=['GET'])
 def builderAdd():
