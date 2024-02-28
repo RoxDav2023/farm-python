@@ -48,7 +48,7 @@
                     <td class="ligne">{{ farm.employee }}</td>
                     <td class="ligne"><button><a href="{{ url_for('farmAdd') }}">Add</a></button></td>
                     <td class="ligne"><button><a href="{{ url_for('modifyFarm', id=farm['id']) }}">Edit</a></button></td>
-                    <td class="ligne"><button><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></td>
+                    <td class="ligne"><button onclick="message()"><a href="{{ url_for('removeFarm', id=farm['id']) }}">Remove</a></button></td>
                 </tr>
                 {% endfor %}
             </tbody>
