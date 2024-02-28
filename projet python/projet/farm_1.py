@@ -13,6 +13,10 @@ def index():
     return render_template('index.html', farms=farms, builders=builders)
 
 # Farms path
+@app.route('/farm')
+def farm():
+    
+    return render_template('farm.html')
 @app.route("/farm/add", methods=['GET'])
 def farmAdd():
     return render_template('fadd.html')
@@ -134,12 +138,6 @@ def modifyFarmPOST(id):
     else:
         return "Farm not found"
 
-
-
-
-
-
-
 @app.route("/farm/remove/<int:id>", methods=['GET'])
 def removeFarm(id):
     farms = json.load(open('projet python\\projet\\taches.json'))
@@ -159,6 +157,11 @@ def showstatus(id):
 #Builders Path
     
 # Builders path
+@app.route('/builder')
+def builder():
+
+    return render_template('builder.html') 
+
 @app.route("/builder/add", methods=['GET'])
 def builderAdd():
     farms = json.load(open('projet python\\projet\\taches.json'))

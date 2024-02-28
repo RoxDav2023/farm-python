@@ -3,75 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='image/logo.jpg') }}">
+    <script src="{{ url_for('static', filename='js/monjs.js') }}"></script>
     <title>Builder</title>
-    <link href="css\builder.css" rel="stylesheet" media="screen">
-    <link rel="shortcut icon" href="image/logo.jpg">
-    <link rel="apple-touch-icon" href="image/logo.jpg">
-    <script src="js\monjs.js"></script>
     
 </head>
 <body>
     <div id="logo">
-        <a href="index.html" id="link"><img src="image/logo.jpg" id="logo"></a>
+        <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div>
-        <nav id="menu" class="navbar">
-            <ul>
-                <li class="dropdown">
-                    <div>
-                        <h1>Farm</h1>
-                        <div class="dropdownc1">
-                            <table>
-                                <tbody>
-                                    <!-- {% for todo in todos %} -->
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Edit</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Remove</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Status</a></button></td>
-                                    </tr>
-                                    <!-- {% endfor %} -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <div>
-                        <h1>Builder</h1>
-                        <div class="dropdownc2">
-                            <table>
-                                <tbody>
-                                    <!-- {% for todo in todos %} -->
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Add</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Edit</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Remove</a></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td><button><a href="{{ url_for('todosEdit', id=todo.id) }}">Assign</a></button></td>
-                                    </tr>
-                                    <!-- {% endfor %} -->
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-
-        <div>
-            <h1>allo</h1>
-        </div>
+    <h3>Builder</h3>
+    <table id="table2">
+        <thead>
+            <tr>
+                <th class="ligne">Id</th>
+                <th class="ligne">Last Name</th>
+                <th class="ligne">First Name</th>
+                <th class="ligne">Gamertag</th>
+                <!-- <th class="ligne">Icon</th> -->
+                <th class="ligne">Assigned to farm id :</th>
+                <th class="ligne">Add</th>
+                <th class="ligne">Assign</th>
+                <th class="ligne">Edit</th>
+                <th class="ligne">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for builder in builders %}
+            <tr>
+                <td class="ligne">{{ builder.id }}</td>
+                <td class="ligne">{{ builder.lname }}</td>
+                <td class="ligne">{{ builder.fname }}</td>
+                <td class="ligne">{{ builder.gamertag }}</td>
+                <!-- <td class="ligne"><img src="{{ url_for('static', filename=builder.icon) }}" alt="Avatar" style="width:50px;height:50px;"></td> -->
+                <td class="ligne">
+                    {% for task in builder.assigned_to %}
+                        {{ task }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </td>
+                <td class="ligne"><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
+                <td class="ligne"><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
+                <td class="ligne"><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
+                <td class="ligne"><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
 
