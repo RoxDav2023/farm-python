@@ -56,10 +56,9 @@ def modifyFarm(id):
     farms = json.load(open('projet python\\projet\\taches.json'))
     builders = json.load(open('projet python\\projet\\employes.json'))
     farm = next((farm for farm in farms if farm['id'] == id), None)
-    if farm:
-        return render_template('fedit.html', farm=farm, builders=builders)
-    else:
-        return "Farm not found"
+
+    return render_template('fedit.html', farm=farm, builders=builders)
+
 
 @app.route("/farm/modify/<int:id>", methods=['POST'])
 def modifyFarmPOST(id):
