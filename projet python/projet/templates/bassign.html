@@ -20,7 +20,7 @@
         <a href="{{ url_for('farm') }}" class="size">farm</a>  
         <a href="{{ url_for('farmStatus') }}" class="size">farm status</a> 
     </div>
-    
+        <!-- assign a farm to a builder -->
         <h2>Assign Farm to Builder</h2>
         <div class="div1">
         <form action="{{ url_for('assignBuilderPOST', id=builder.id) }}" class="size" method="post">

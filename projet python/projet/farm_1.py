@@ -15,6 +15,7 @@ def index():
 @app.route("/export/employees", methods=["GET"])
 def export_employees():
     builders = json.load(open('projet python\\projet\\employes.json'))
+    #import jsonify to export a json file
     return jsonify(builders)
 # Farms path
 @app.route('/farm')
