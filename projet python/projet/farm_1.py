@@ -17,6 +17,16 @@ def index():
 def farm():
     farms = json.load(open('projet python\\projet\\taches.json'))
     return render_template('farm.html', farms = farms)
+@app.route("/farm/status")
+def farmStatus():
+    farms = json.load(open('projet python\\projet\\taches.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
+    
+    # Filter farms based on status
+    filtered_farms = [farm for farm in farms if farm['statut'] in ['Unassigned', 'In Progress']]
+    
+    return render_template('fstatus.html', farms=filtered_farms, builders=builders)
+
 @app.route("/farm/add", methods=['GET'])
 def farmAdd():
     return render_template('fadd.html')
