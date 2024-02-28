@@ -25,14 +25,14 @@
         <input type="text" id="icon" name="icon" value="{{ builder.icon }}"><br><br>
 
         <!-- Display assigned farms dropdown menus -->
-        {% for farm_id in builder.assigned_to %}
+        <!-- {% for farm_id in builder.assigned_to %}
         <label for="assigned_to">Select a Farm:</label><br>
         <select name="assigned_to" id="assigned_to">
             {% for farm in farms %}
             <option value="{{ farm.id }}" {% if farm.id == farm_id %} selected {% endif %}>{{ farm.title }}</option>
             {% endfor %}
         </select><br><br>
-        {% endfor %}
+        {% endfor %} -->
 
         
         <input type="submit" value="Submit">
