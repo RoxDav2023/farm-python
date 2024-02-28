@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, jsonify
 from flask import request
 import json
 import os
@@ -11,7 +11,11 @@ def index():
     farms = json.load(open('projet python\\projet\\taches.json'))
     builders = json.load(open('projet python\\projet\\employes.json'))
     return render_template('index.html', farms=farms, builders=builders)
-
+# export json file
+@app.route("/export/employees", methods=["GET"])
+def export_employees():
+    builders = json.load(open('projet python\\projet\\employes.json'))
+    return jsonify(builders)
 # Farms path
 @app.route('/farm')
 def farm():
