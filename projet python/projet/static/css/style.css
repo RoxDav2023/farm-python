@@ -50,7 +50,7 @@ h1{
 h2{
     font-size:3em;
     position: absolute;
-    left:852px ;
+    left:752px ;
     top:90px;
     color: #efeeee;
 }
@@ -58,7 +58,7 @@ h3{
     font-size:3em;
     position: absolute;
     top:420px;
-    left:850px;
+    left:750px;
     color: #efeeee;
     text-align: center;
 }
@@ -90,3 +90,14 @@ table{
     top:550px;
     left:460px; 
 }
+.div1{
+    position: absolute;
+    left:760px;
+    top:200px;
+    background-color:#212121;
+    width:200px;
+    text-align: center;
+    border:4px #a10505 solid
+    
+
+ }

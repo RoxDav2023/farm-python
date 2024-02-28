@@ -112,3 +112,9 @@ body{
      display:inline-block;
      
  }
+
+ #div1{
+    position: absolute;
+    left:500px;
+    top:200px;
+ }
