@@ -14,4 +14,6 @@ assignLinks.forEach(function(link) {
             this.href += '&builder_id=' + builderId;
         }
     });
-});
+});function message(){
+    window.alert("Succesfully deleted")
+}
