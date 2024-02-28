@@ -21,7 +21,7 @@
     <div>
     <h2>Edit Farm</h2>
     <div class="div1">
-    <form action="{{ url_for('modifyFarmPOST', id=farm['id']) }}" method="POST">
+    <form action="{{ url_for('modifyFarmPOST', id=farm['id']) }}" class="size" method="POST">
         <label for="title">Title:</label><br>
         <input type="text" id="title" name="title" value="{{ farm['title'] }}"><br><br>
         
