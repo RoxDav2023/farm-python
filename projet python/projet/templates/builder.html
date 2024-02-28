@@ -15,10 +15,12 @@
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div> -->
     <div>
+        <a href="{{ url_for('index') }}">index</a>
         <a href="{{ url_for('builderAdd') }}">add builder</a>
         <a href="{{ url_for('farmAdd') }}">add farm</a>
         <a href="{{ url_for('builder') }}">builder</a>   
         <a href="{{ url_for('farm') }}">farm</a>  
+        <a href="{{ url_for('farmStatus') }}">farm status</a> 
     </div>
     
     <h3>Builder</h3>
@@ -53,11 +55,12 @@
                 <td class="ligne"><button><a href="{{ url_for('builderAdd') }}">Add</a></button></td>
                 <td class="ligne"><button><a href="{{ url_for('assignBuilder', id=builder['id']) }}">Assign</a></button></td>
                 <td class="ligne"><button><a href="{{ url_for('modifyBuilder', id=builder['id']) }}">Edit</a></button></td>
-                <td class="ligne"><button><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
+                <td class="ligne"><button onclick="message()"><a href="{{ url_for('removeBuilder', id=builder['id']) }}">Remove</a></button></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    <a href="{{ url_for('export_employees') }}">Export Employees to JSON</a>
 </div>
 </body>
 </html>

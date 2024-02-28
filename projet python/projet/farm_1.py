@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template
+from flask import Flask, redirect, render_template, jsonify
 from flask import request
 import json
 import os
@@ -11,12 +11,26 @@ def index():
     farms = json.load(open('projet python\\projet\\taches.json'))
     builders = json.load(open('projet python\\projet\\employes.json'))
     return render_template('index.html', farms=farms, builders=builders)
-
+# export json file
+@app.route("/export/employees", methods=["GET"])
+def export_employees():
+    builders = json.load(open('projet python\\projet\\employes.json'))
+    return jsonify(builders)
 # Farms path
 @app.route('/farm')
 def farm():
     farms = json.load(open('projet python\\projet\\taches.json'))
     return render_template('farm.html', farms = farms)
+@app.route("/farm/status")
+def farmStatus():
+    farms = json.load(open('projet python\\projet\\taches.json'))
+    builders = json.load(open('projet python\\projet\\employes.json'))
+    
+    # Filter farms based on status
+    filtered_farms = [farm for farm in farms if farm['statut'] in ['Unassigned', 'In Progress']]
+    
+    return render_template('fstatus.html', farms=filtered_farms, builders=builders)
+
 @app.route("/farm/add", methods=['GET'])
 def farmAdd():
     return render_template('fadd.html')

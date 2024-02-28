@@ -14,10 +14,12 @@
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div> -->
     <div>
+        <a href="{{ url_for('index') }}">index</a>
         <a href="{{ url_for('builderAdd') }}">add builder</a>
         <a href="{{ url_for('farmAdd') }}">add farm</a>
         <a href="{{ url_for('builder') }}">builder</a>   
         <a href="{{ url_for('farm') }}">farm</a>  
+        <a href="{{ url_for('farmStatus') }}">farm status</a> 
     </div>
     
     <h2>Add Builder</h2>
@@ -28,7 +30,7 @@
         <label for="first_name">First Name:</label><br>
         <input type="text" id="first_name" name="first_name"><br>
         <label for="gamertag">Gamertag:</label><br>
-        <input type="text" id="gamertag" name="gamertag"><br>
+        <input type="text" id="gamertag" name="gamertag", required><br>
         <label for="icon">Icon:</label><br>
         <input type="file" id="icon" name="icon"><br>
         
