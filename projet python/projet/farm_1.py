@@ -175,7 +175,7 @@ def builderAddPOST():
     builder['lname'] = request.form['last_name']
     builder['fname'] = request.form['first_name']
     builder['gamertag'] = request.form['gamertag']
-    # builder['icon'] = request.form['icon']
+
     
     # Handle file upload
     if 'icon' in request.files:
@@ -191,27 +191,11 @@ def builderAddPOST():
     
     builder['id'] = (max(builders, key = lambda x: x['id'])['id'])+1
 
-    # builder['assigned_to'] = []
-
-
-
-    # if len(builder['assigned_to']) < 3:
-    #     builder['assigned_to'].append(request.form['assigned_to'])
-    #     builders.append(builder)
-    #     json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
-    #     return redirect('/')
-    # else:
-    #     return "This builder cannot be assigned more tasks"
-        
     builder['assigned_to'] = request.form.getlist('assigned_to')
-    # if assigned_to:
-    #     builder['assigned_to'] = assigned_to
-    # else:
-    #     builder['assigned_to'] = []
 
     if len(builder['assigned_to']) < 3:
         builders.append(builder)
-        json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
+        json.dump(builders, open('projet python\\projet\\employes.json', 'w'),indent=4)
         return redirect('/')
     else:
         return "This builder cannot be assigned more tasks"
@@ -229,26 +213,25 @@ def modifyBuilder(id):
 def modifyBuilderPOST(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builder = next((builder for builder in builders if builder['id'] == id), None)
-    if builder:
-        builder['lname'] = request.form['last_name']
-        builder['fname'] = request.form['first_name']
-        builder['gamertag'] = request.form['gamertag']
-        builder['icon'] = request.form['icon']
 
-        json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
-        return redirect('/')
-    else:
-        return "Builder not found"
+    builder['lname'] = request.form['last_name']
+    builder['fname'] = request.form['first_name']
+    builder['gamertag'] = request.form['gamertag']
+    builder['icon'] = request.form['icon']
+
+    json.dump(builders, open('projet python\\projet\\employes.json', 'w'),indent=4)
+    return redirect('/')
+
 
 @app.route("/builder/assign/<int:id>", methods=['GET'])
 def assignBuilder(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     farms = json.load(open('projet python\\projet\\taches.json'))
+    
     builder = next((builder for builder in builders if builder['id'] == id), None)
-    if builder:
-        return render_template('bassign.html', builder=builder, farms=farms)
-    else:
-        return "Builder not found"
+
+    return render_template('bassign.html', builder=builder, farms=farms)
+
 
 
 @app.route("/builder/assign/<int:id>", methods=['POST'])
@@ -289,7 +272,7 @@ def assignBuilderPOST(id):
 def removeBuilder(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
     builders = [builder for builder in builders if builder['id'] != id]
-    json.dump(builders, open('projet python\\projet\\employes.json', 'w'))
+    json.dump(builders, open('projet python\\projet\\employes.json', 'w'),indent=4)
     return redirect('/')
 
 app.run(debug=True)

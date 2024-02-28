@@ -6,9 +6,7 @@
         "gamertag": "QueenBTS23RD",
         "icon": "Screenshot (71).png",
         "assigned_to": [
-            1,
-            2,
-            5
+            1
         ]
     },
     {
@@ -17,9 +15,7 @@
         "fname": "Danick",
         "gamertag": "DanThePro79",
         "icon": "avatar2.png",
-        "assigned_to": [
-            4
-        ]
+        "assigned_to": []
     },
     {
         "id": 3,
@@ -28,8 +24,7 @@
         "gamertag": "Prof_X_01",
         "icon": "avatar3.png",
         "assigned_to": [
-            3,
-            4
+            3
         ]
     },
     {
@@ -38,8 +33,6 @@
         "fname": "Maxime",
         "gamertag": "PandaLag77777",
         "icon": "avatar4.png",
-        "assigned_to": [
-            5
-        ]
+        "assigned_to": []
     }
 ]
