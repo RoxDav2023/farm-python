@@ -11,17 +11,17 @@
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div> -->
     <div class="div2">
-        <a href="{{ url_for('index') }}">index</a>
-        <a href="{{ url_for('builderAdd') }}">add builder</a>
-        <a href="{{ url_for('farmAdd') }}">add farm</a>
-        <a href="{{ url_for('builder') }}">builder</a>   
-        <a href="{{ url_for('farm') }}">farm</a>  
-        <a href="{{ url_for('farmStatus') }}">farm status</a> 
+        <a href="{{ url_for('index') }}" class="size">index</a>
+        <a href="{{ url_for('builderAdd') }}" class="size">add builder</a>
+        <a href="{{ url_for('farmAdd') }}" class="size">add farm</a>
+        <a href="{{ url_for('builder') }}" class="size">builder</a>   
+        <a href="{{ url_for('farm') }}" class="size">farm</a>  
+        <a href="{{ url_for('farmStatus') }}" class="size">farm status</a> 
     </div>
     <!-- edit a builder -->
     <h2>Edit Builder</h2>
     <div class="div1">
-    <form action="{{ url_for('modifyBuilderPOST', id=builder.id) }}" method="post">
+    <form action="{{ url_for('modifyBuilderPOST', id=builder.id) }}"class="size" method="post">
         <label for="last_name">Last Name:</label><br>
         <input type="text" id="last_name" name="last_name" value="{{ builder.lname }}"><br><br>
         
