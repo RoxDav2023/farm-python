@@ -53,7 +53,7 @@
                     <th class="ligne">Last Name</th>
                     <th class="ligne">First Name</th>
                     <th class="ligne">Gamertag</th>
-                    <th class="ligne">Icon</th>
+                    <!-- <th class="ligne">Icon</th> -->
                     <th class="ligne">Assigned to farm id :</th>
                     <th class="ligne">Add</th>
                     <th class="ligne">Assign</th>
@@ -68,7 +68,7 @@
                     <td class="ligne">{{ builder.lname }}</td>
                     <td class="ligne">{{ builder.fname }}</td>
                     <td class="ligne">{{ builder.gamertag }}</td>
-                    <td class="ligne"><img src="{{ url_for('static', filename=builder.icon) }}" alt="Avatar" style="width:50px;height:50px;"></td>
+                    <!-- <td class="ligne"><img src="{{ url_for('static', filename=builder.icon) }}" alt="Avatar" style="width:50px;height:50px;"></td> -->
                     <td class="ligne">
                         {% for task in builder.assigned_to %}
                             {{ task }}{% if not loop.last %}, {% endif %}
