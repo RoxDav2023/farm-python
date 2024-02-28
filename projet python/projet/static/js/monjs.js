@@ -1,4 +1,4 @@
-// Get all elements with the class "assign-link"
+// Get all elements with the class "assign-link" force
 var assignLinks = document.querySelectorAll('.assign-link');
 
 // Loop through each link and attach a click event listener

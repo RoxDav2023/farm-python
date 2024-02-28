@@ -3,10 +3,8 @@
         "id": 1,
         "title": "Cobblestone",
         "description": "cobblestone generator for the world",
-        "statut": "In Progress",
-        "employee": [
-            1
-        ]
+        "statut": "Done",
+        "employee": []
     },
     {
         "id": 2,
