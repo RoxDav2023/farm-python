@@ -11,40 +11,30 @@
         <a href="/" id="link"><img src="{{ url_for('static', filename='image/logo.jpg') }}" id="logo"></a>
     </div> -->
     <h2>Edit Builder</h2>
-    <form action="{{ url_for('modifyBuilderPOST', id=builder['id']) }}" method="POST">
-        <label for="title">Name/Gamertag:</label><br>
-        <input type="text" id="gamertag" name="gamertag" value="{{ builder['gamertag'] }}"><br><br>
+    <form action="{{ url_for('modifyBuilderPOST', id=builder.id) }}" method="post">
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" value="{{ builder.lname }}"><br><br>
+        
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" value="{{ builder.fname }}"><br><br>
+        
+        <label for="gamertag">Gamertag:</label><br>
+        <input type="text" id="gamertag" name="gamertag" value="{{ builder.gamertag }}"><br><br>
 
-        {% for assigned_farm in builder.assigned_to %}
-        <label for="farm_{{ loop.index }}">Select a Farm:</label>
-        <select name="farm_{{ loop.index }}" id="farm_{{ loop.index }}">
+        <label for="icon">Icon:</label><br>
+        <input type="text" id="icon" name="icon" value="{{ builder.icon }}"><br><br>
+
+        <!-- Display assigned farms dropdown menus -->
+        {% for farm_id in builder.assigned_to %}
+        <label for="assigned_to">Select a Farm:</label><br>
+        <select name="assigned_to" id="assigned_to">
             {% for farm in farms %}
-            <option value="{{ farm.id }}" {% if farm.id == assigned_farm %} selected {% endif %}>{{ farm.title }}</option>
+            <option value="{{ farm.id }}" {% if farm.id == farm_id %} selected {% endif %}>{{ farm.title }}</option>
             {% endfor %}
-        </select>
-        <br>
+        </select><br><br>
         {% endfor %}
 
-
-
-        <br><br>
-        <label for="title">First Name:</label><br>
-        <input type="text" id="first_name" name="first_name" value="{{ builder['fname'] }}"><br><br>
-
-        <label for="title">Last Name:</label><br>
-        <input type="text" id="last_name" name="last_name" value="{{ builder['lname'] }}"><br><br>
-
-        <label for="title">Icon:</label><br>
-        <input type="file" id="icon" name="icon" value="{{ builder['icon'] }}"><br><br>
-
-        <div id="farmSelection" style="display: none;">
-            <label for="farm">Select a Farm:</label>
-            <select id="title" name="title">
-                {% for farm in farms %}
-                    <option value="{{ farm.title }}">{{ farm.title }}</option>
-                {% endfor %}
-            </select>
-        </div>
+        
         <input type="submit" value="Submit">
     </form>
 </body>
