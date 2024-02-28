@@ -66,72 +66,71 @@ def modifyFarmPOST(id):
     farms = json.load(open('projet python\\projet\\taches.json'))
     builders = json.load(open('projet python\\projet\\employes.json'))
     farm = next((farm for farm in farms if farm['id'] == id), None)
-    if farm:
-        farm['title'] = request.form['title']
-        farm['description'] = request.form.get('description')
-        
-        new_builder_id = request.form.get('builder')
-        if new_builder_id:
-            new_builder_id = int(new_builder_id)
-            if farm['employee'] is None:
-                farm['employee'] = []
-            if new_builder_id not in farm['employee']:
-                farm['employee'].append(new_builder_id)
-        else:
-            farm['employee'] = []
-        
-        status = request.form.get('status')
-        if status == 'Unassigned':
-            farm['statut'] = 'Unassigned'
-            farm['employee'] = []  # Clear assigned builders when Unassigned
-            # Remove farm ID from assigned_to field of all builders
-            for builder in builders:
-                if farm['id'] in builder.get('assigned_to', []):
-                    builder['assigned_to'].remove(farm['id'])
-        elif status == 'Done':
-            farm['statut'] = 'Done'
-            farm['employee'] = []  # Clear assigned builders when Done
-            # Remove farm ID from assigned_to field of all builders
-            for builder in builders:
-                if farm['id'] in builder.get('assigned_to', []):
-                    builder['assigned_to'].remove(farm['id'])
-        elif status == 'In Progress':
-            farm['statut'] = 'In Progress'
-            in_progress_id = request.form.get('builder')
-            if in_progress_id:
-                in_progress_id = int(in_progress_id)
-                previous_builder_id = farm.get('employee')
-                farm['employee'] = [in_progress_id]
-                
-                # Remove farm ID from assigned_to field of previous builder
-                if previous_builder_id:
-                    previous_builder = next((builder for builder in builders if builder['id'] == previous_builder_id), None)
-                    if previous_builder:
-                        if farm['id'] in previous_builder.get('assigned_to', []):
-                            previous_builder['assigned_to'].remove(farm['id'])
-                
-                # Update builder's assigned farms list with the farm ID in progress
-                builder = next((builder for builder in builders if builder['id'] == in_progress_id), None)
-                if builder:
-                    if 'assigned_to' not in builder:
-                        builder['assigned_to'] = []
-                    builder['assigned_to'].append(farm['id'])
-            else:
-                farm['employee'] = []  # Clear assigned builders when In Progress
-                # Remove farm ID from assigned_to field of all builders
-                for builder in builders:
-                    if farm['id'] in builder.get('assigned_to', []):
-                        builder['assigned_to'].remove(farm['id'])
 
-        with open('projet python\\projet\\taches.json', 'w') as f:
-            json.dump(farms, f, indent=4)
-        
-        with open('projet python\\projet\\employes.json', 'w') as f:
-            json.dump(builders, f, indent=4)
-        
-        return redirect('/')
+    farm['title'] = request.form['title']
+    farm['description'] = request.form.get('description')
+    
+    new_builder_id = request.form.get('builder')
+    if new_builder_id:
+        new_builder_id = int(new_builder_id)
+        if farm['employee'] is None:
+            farm['employee'] = []
+        if new_builder_id not in farm['employee']:
+            farm['employee'].append(new_builder_id)
     else:
-        return "Farm not found"
+        farm['employee'] = []
+    
+    status = request.form.get('status')
+    if status == 'Unassigned':
+        farm['statut'] = 'Unassigned'
+        farm['employee'] = []  # Clear assigned builders when Unassigned
+        # Remove farm ID from assigned_to field of all builders
+        for builder in builders:
+            if farm['id'] in builder.get('assigned_to', []):
+                builder['assigned_to'].remove(farm['id'])
+    elif status == 'Done':
+        farm['statut'] = 'Done'
+        farm['employee'] = []  # Clear assigned builders when Done
+        # Remove farm ID from assigned_to field of all builders
+        for builder in builders:
+            if farm['id'] in builder.get('assigned_to', []):
+                builder['assigned_to'].remove(farm['id'])
+    elif status == 'In Progress':
+        farm['statut'] = 'In Progress'
+        in_progress_id = request.form.get('builder')
+        if in_progress_id:
+            in_progress_id = int(in_progress_id)
+            previous_builder_id = farm.get('employee')
+            farm['employee'] = [in_progress_id]
+            
+            # Remove farm ID from assigned_to field of previous builder
+            
+            previous_builder = next((builder for builder in builders if builder['id'] == previous_builder_id), None)
+                
+            if farm['id'] in previous_builder.get('assigned_to', []):
+                previous_builder['assigned_to'].remove(farm['id'])
+            
+            # Update builder's assigned farms list with the farm ID in progress
+            builder = next((builder for builder in builders if builder['id'] == in_progress_id), None)
+
+            if 'assigned_to' not in builder:
+                builder['assigned_to'] = []
+            builder['assigned_to'].append(farm['id'])
+        else:
+            farm['employee'] = []  # Clear assigned builders when In Progress
+            # Remove farm ID from assigned_to field of all builders
+            for builder in builders:
+                if farm['id'] in builder.get('assigned_to', []):
+                    builder['assigned_to'].remove(farm['id'])
+
+    with open('projet python\\projet\\taches.json', 'w') as f:
+        json.dump(farms, f, indent=4)
+    
+    with open('projet python\\projet\\employes.json', 'w') as f:
+        json.dump(builders, f, indent=4)
+    
+    return redirect('/')
+
 
 
 
