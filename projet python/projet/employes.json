@@ -4,15 +4,17 @@
         "lname": "David",
         "fname": "Roxane",
         "gamertag": "QueenBTS23RD",
-        "icon": "Screenshot (71).png",
-        "assigned_to": []
+        "icon": "avatar1.png",
+        "assigned_to": [
+            1
+        ]
     },
     {
         "id": 2,
         "lname": "Poirier",
         "fname": "Danick",
         "gamertag": "DanThePro79",
-        "icon": "avatar2.png",
+        "icon": "Roxaneicon.png",
         "assigned_to": []
     },
     {

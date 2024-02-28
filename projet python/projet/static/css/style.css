@@ -7,11 +7,8 @@ body{
 
     
 }
-#logo{
-    width:65px;
-    border-radius: 10%;
-    
-}
+
+
 #link{
     z-index:1;
     position: relative;
@@ -19,14 +16,7 @@ body{
     left:5px;
     position: fixed;
 }
-nav{
-    padding-top:10px;
-    width: 80%;
-    position: fixed;
-    position: relative;
-    top:-25px;
-    text-align: center;
-}
+
 button{
     background-color: #efeeee;
     border-radius: 5px;
@@ -98,8 +88,6 @@ table{
     padding:10px;
     text-align: center;
     border:4px #a10505 solid
-    
-
  }
 
  .div2{
