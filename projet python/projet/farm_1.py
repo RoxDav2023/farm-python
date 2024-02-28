@@ -207,15 +207,44 @@ def modifyBuilder(id):
 @app.route("/builder/modify/<int:id>", methods=['POST'])
 def modifyBuilderPOST(id):
     builders = json.load(open('projet python\\projet\\employes.json'))
+    farms = json.load(open('projet python\\projet\\taches.json'))
+    
     builder = next((builder for builder in builders if builder['id'] == id), None)
     
     builder['lname'] = request.form['last_name']
     builder['fname'] = request.form['first_name']
     builder['gamertag'] = request.form['gamertag']
     builder['icon'] = request.form['icon']
+    
+    # Clear previously assigned farms
+    builder['assigned_to'] = []
 
-    json.dump(builders, open('projet python\\projet\\employes.json', 'w'), indent=4)
+    # Get the number of assigned farms from the form data
+    num_assigned_farms = len(request.form) - 4  # Subtracting 4 for other form fields (last_name, first_name, gamertag, icon)
+    
+    # Iterate over each dropdown menu to get the assigned farm IDs
+    for i in range(num_assigned_farms):
+        farm_id = int(request.form[f'assigned_to_{i}'])  # Get the selected farm ID
+        builder['assigned_to'].append(farm_id)  # Add the farm ID to the assigned_to list
+        
+        # Update the assigned builder for the farm
+        farm = next((farm for farm in farms if farm['id'] == farm_id), None)
+        if farm:
+            if 'employee' not in farm:
+                farm['employee'] = []
+            if id not in farm['employee']:
+                farm['employee'].append(id)
+    
+    # Save the updated builder data back to the employes.json file
+    with open('projet python\\projet\\employes.json', 'w') as f:
+        json.dump(builders, f, indent=4)
+    
+    # Save the updated farms data back to the taches.json file
+    with open('projet python\\projet\\taches.json', 'w') as f:
+        json.dump(farms, f, indent=4)
+    
     return redirect('/')
+
 
 
 @app.route("/builder/assign/<int:id>", methods=['GET'])
