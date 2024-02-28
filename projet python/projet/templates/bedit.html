@@ -15,8 +15,15 @@
         <label for="title">Name/Gamertag:</label><br>
         <input type="text" id="gamertag" name="gamertag" value="{{ builder['gamertag'] }}"><br><br>
 
-        <label for="title">Assigned to:</label><br>
-        <input type="text" id="assigned_to" name="assigned_to" value="{{ builder['assigned_to'] }}"><br><br>
+        <label for="assigned_to">Assigned Farms:</label>
+        {% for index, farm_id in enumerate(builder.assigned_to) %}
+            <select id="assigned_to_{{ index }}" name="assigned_to_{{ index }}">
+                {% for farm in farms %}
+                    <option value="{{ farm.id }}" {% if farm.id == farm_id %} selected {% endif %}>{{ farm.title }}</option>
+                {% endfor %}
+            </select>
+        {% endfor %}
+
 
         <label for="title">First Name:</label><br>
         <input type="text" id="first_name" name="first_name" value="{{ builder['fname'] }}"><br><br>
