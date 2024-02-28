@@ -35,23 +35,6 @@
                 {% endfor %}
             </select>
         </div>
-        
-        <script>
-            document.getElementById("inProgress").addEventListener("change", function() {
-                if (this.checked) {
-                    var confirmInProgress = confirm("Marking this farm as 'In Progress' will require you to assign a builder to the farm, are you sure you want to do this? This will also assign the farm it to the selected builder.");
-                    if (confirmInProgress) {
-                        document.getElementById("builderSelection").style.display = "block";
-                    } else {
-                        document.getElementById("unassigned").checked = true;
-                        document.getElementById("builderSelection").style.display = "none";
-                    }
-                }
-            });
-        </script>
-
-
-        
         <input type="submit" value="Submit">
     </form>
 </body>
