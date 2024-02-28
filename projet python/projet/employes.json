@@ -6,7 +6,7 @@
         "gamertag": "QueenBTS23RD",
         "icon": "avatar1.png",
         "assigned_to": [
-            1
+            5
         ]
     },
     {
@@ -34,13 +34,5 @@
         "gamertag": "PandaLag77777",
         "icon": "avatar4.png",
         "assigned_to": []
-    },
-    {
-        "lname": "Dovers",
-        "fname": "Ben",
-        "gamertag": "afk12",
-        "id": 5,
-        "assigned_to": [],
-        "icon": ""
     }
 ]

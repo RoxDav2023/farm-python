@@ -265,10 +265,10 @@ def assignBuilderPOST(id):
     assigned_farm = next((farm for farm in farms if farm.get('title') == farm_name), None)
     
     # Update the farm's employee field with the builder's ID
-    assigned_farm['employee'] = builder['id']
+    assigned_farm['employee'].append(builder['id'])
     
     # Add farm ID to the builder's assigned farms list
-    if 'assigned_farms' not in builder:
+    if 'assigned_to' not in builder:
         builder['assigned_to'] = []
     builder['assigned_to'].append(assigned_farm['id'])
 
