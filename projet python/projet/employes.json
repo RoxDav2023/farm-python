@@ -1,37 +1,44 @@
 [
     {
-        "id": 1, 
-        "lname": "David", 
-        "fname": "Roxane", 
-        "gamertag": "QueenBTS23RD", 
-        "icon": "", 
-        "assigned_to": [1, 2]
-    }, 
-
+        "id": 1,
+        "lname": "David",
+        "fname": "Roxane",
+        "gamertag": "QueenBTS23RD",
+        "icon": "Screenshot (71).png",
+        "assigned_to": [
+            1,
+            2,
+            5
+        ]
+    },
     {
-        "id": 2, 
-        "lname": "Poirier", 
-        "fname": "Danick", 
-        "gamertag": "DanThePro79", 
-        "icon": "avatar2.png", 
-        "assigned_to": [4]
-    }, 
-
+        "id": 2,
+        "lname": "Poirier",
+        "fname": "Danick",
+        "gamertag": "DanThePro79",
+        "icon": "avatar2.png",
+        "assigned_to": [
+            4
+        ]
+    },
     {
-        "id": 3, 
-        "lname": "Viel", 
-        "fname": "Xavier", 
-        "gamertag": "Prof_X_01", 
-        "icon": "avatar3.png", 
-        "assigned_to": [3]
-    }, 
-
+        "id": 3,
+        "lname": "Viel",
+        "fname": "Xavier",
+        "gamertag": "Prof_X_01",
+        "icon": "avatar3.png",
+        "assigned_to": [
+            3
+        ]
+    },
     {
-        "id": 4, 
-        "lname": "Michaud", 
-        "fname": "Maxime", 
-        "gamertag": "PandaLag77777", 
-        "icon": "avatar4.png", 
-        "assigned_to": [5]
+        "id": 4,
+        "lname": "Michaud",
+        "fname": "Maxime",
+        "gamertag": "PandaLag77777",
+        "icon": "avatar4.png",
+        "assigned_to": [
+            5
+        ]
     }
 ]
