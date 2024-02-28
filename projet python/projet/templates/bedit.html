@@ -16,10 +16,10 @@
         <input type="text" id="gamertag" name="gamertag" value="{{ builder['gamertag'] }}"><br><br>
 
         <label for="assigned_to">Assigned Farms:</label>
-        {% for index, farm_id in enumerate(builder.assigned_to) %}
-            <select id="assigned_to_{{ index }}" name="assigned_to_{{ index }}">
+        {% for i in range(builder.assigned_to|length) %}
+            <select id="assigned_to_{{ i }}" name="assigned_to_{{ i }}">
                 {% for farm in farms %}
-                    <option value="{{ farm.id }}" {% if farm.id == farm_id %} selected {% endif %}>{{ farm.title }}</option>
+                    <option value="{{ farm.id }}" {% if farm.id == builder.assigned_to[i] %} selected {% endif %}>{{ farm.title }}</option>
                 {% endfor %}
             </select>
         {% endfor %}
