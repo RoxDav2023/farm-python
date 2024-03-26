@@ -41,6 +41,15 @@ a{
     text-decoration: none;
 }
 
-p{
+#para1{
     color: white;
+    font-size:2em ;
+}
+#paragauche{
+    color: white;
+    font-size:1em ;
+}
+#paradroite{
+    color: white;
+    font-size:1em ;
 }
