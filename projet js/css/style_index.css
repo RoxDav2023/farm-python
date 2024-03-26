@@ -27,14 +27,18 @@ body{
     position: absolute;
     left: 300px;
     bottom: 100px;
+    width:200px;
+    height:50px;
     
 }
 #boutonIW{
     background-color: #aef77d;
     border-radius:5px;
     position: absolute;
-    left: 350px;
+    left: 575px;
     bottom: 100px;
+    width: 200px;
+    height:50px;
     
 }
 a{
@@ -44,6 +48,9 @@ a{
 #para1{
     color: white;
     font-size:2em ;
+    position: absolute;
+    left: 300px;
+    top: 75px;
 }
 #paragauche{
     color: white;
