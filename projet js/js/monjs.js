@@ -18,10 +18,12 @@ function hideFormAndShowNext() {
     var form = document.getElementById("name");
     var next = document.getElementById("next1");
     var nextButton = document.getElementById("boutonnext1");
+    var okButton = document.getElementById("boutonOk");
 
     form.style.display = "none"; // Pour cacher le formulaire
     next.style.display = "block"; // Pour afficher le paragraphe suivant
     nextButton.style.display = "none"; // Pour cacher le bouton "Next"
+    okButton.style.display = "block"; // Pour afficher le bouton "Ok"
 }
 
 // meal generator //
