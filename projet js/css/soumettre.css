@@ -30,7 +30,6 @@
 }
 
 .dl-parachute .success {
-    
     --o: var(--success-opacity);
     --y: var(--success-y);
 }
