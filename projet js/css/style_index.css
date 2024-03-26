@@ -1,0 +1,16 @@
+body{
+    background-color:#8385bb ;
+}
+
+#bfermer{
+    position: absolute;
+    left: 200px;
+    bottom: 30px;
+}
+
+#bouvert{
+    position: absolute;
+    left: 25px;
+    bottom: 30px;
+}
+

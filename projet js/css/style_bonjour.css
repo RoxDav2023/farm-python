@@ -1,0 +1,59 @@
+body{
+    background-color: #d54d4d;
+}
+
+#robot1{
+    width: 300px;
+    position: absolute;
+    left: 0px;
+    top: -30px;
+}
+
+form{
+    
+    font-family: Arial, sans-serif;
+    margin-bottom: 10px;
+    color: white;
+    position: absolute;
+    left: 300px;
+    top: 120px;
+    
+}
+
+p{
+    font-size: 2em;
+    position: absolute;
+    left: 300px;
+    top: 200px;
+    z-index: 1;
+    text-align: center;
+    color:white
+}
+
+#next{
+    position: absolute;
+    left: 300px;
+    bottom: 100px;
+}
+
+#boutonnext1{
+    position: absolute;
+    left: 300px;
+    bottom: 100px;
+}
+#boutonnext2{
+    position: absolute;
+    left: 300px;
+    bottom: 100px;
+}
+
+#greetingMessage{ 
+     position: absolute;
+    left: 300px;
+    top: 75px; 
+}
+#next1{
+    position: absolute;
+    left: 300px;
+    top: 150px;
+}
