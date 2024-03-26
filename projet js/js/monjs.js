@@ -57,6 +57,7 @@ const createMeal = meal => {
         }
     }
 
+    // get JSON response, parse and transform into HTML component //
     const newInnerHTML = `
         <div class="row">
             <div class="columns five">
