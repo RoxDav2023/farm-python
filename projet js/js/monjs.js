@@ -97,3 +97,8 @@ const createMeal = meal => {
         meal_container.innerHTML = newInnerHTML;
 };
 
+function soumettre() {
+    const parachute = document.querySelector('.dl-parachute');
+    
+    parachute.classList.soumettre('is-visible');
+}
