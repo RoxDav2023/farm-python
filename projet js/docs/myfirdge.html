@@ -55,6 +55,10 @@
     <label for="food23"> J'ai des patates</label><br>
     </form>
     
+
+    <button id="submitBtn">Soumettre</button>
+    <div id="userChoices"></div>
+
     <div class="dl-parachute">
         <svg width="300" height="200">
             <circle class="circle" cx="150" cy="100" r="40" stroke="black" stroke-width="3" fill="none"></circle>
@@ -64,8 +68,24 @@
         <div class="parachute"></div>
         <button onclick="toggleParachute()">soumettre</button>
     </div>
+
     
-    
+    <script>
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            let choices = []; 
+         
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            
+            checkboxes.forEach((checkbox) => {
+                choices.push(checkbox.nextElementSibling.textContent.trim());
+            });
+            
+            document.getElementById('userChoices').textContent = 'Vous avez choisi: ' + choices.join(', ');
+        });
+        </script>
+        
+
+
 </body>
 
 </html>

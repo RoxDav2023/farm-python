@@ -101,9 +101,3 @@ const createMeal = meal => {
 };
 
 
-document.getElementById('toggleButton').addEventListener('click', function() {
-    const parachuteElements = document.querySelectorAll('.dl-parachute svg .circle, .dl-parachute .arrow, .dl-parachute .parachute');
-    parachuteElements.forEach(el => {
-        el.style.opacity = el.style.opacity === '0' ? '1' : '0';
-    });
-});
