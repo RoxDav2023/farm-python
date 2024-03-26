@@ -14,3 +14,33 @@ body{
     bottom: 30px;
 }
 
+#robot1{
+    width: 300px;
+    position: absolute;
+    left: 0px;
+    top: -30px;
+}
+
+#boutonIH{
+    background-color: #f6eb73;
+    border-radius:5px;
+    position: absolute;
+    left: 300px;
+    bottom: 100px;
+    
+}
+#boutonIW{
+    background-color: #aef77d;
+    border-radius:5px;
+    position: absolute;
+    left: 350px;
+    bottom: 100px;
+    
+}
+a{
+    text-decoration: none;
+}
+
+p{
+    color: white;
+}
