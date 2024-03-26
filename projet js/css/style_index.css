@@ -55,8 +55,16 @@ a{
 #paragauche{
     color: white;
     font-size:1em ;
+    position: absolute;
+    left: 310px;
+    top: 200px;
+    text-align: center;
 }
 #paradroite{
     color: white;
     font-size:1em ;
+    position: absolute;
+    left: 590px;
+    top: 200px;
+    text-align: center;
 }
