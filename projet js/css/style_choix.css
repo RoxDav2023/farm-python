@@ -1,0 +1,72 @@
+body{
+    background-color:#8385bb ;
+}
+
+#bfermer{
+    position: absolute;
+    left: 200px;
+    bottom: 30px;
+}
+
+#bouvert{
+    position: absolute;
+    left: 25px;
+    bottom: 30px;
+}
+
+#robot1{
+    width: 300px;
+    position: absolute;
+    left: 0px;
+    top: -30px;
+}
+
+#boutonIH{
+    background-color: #f6eb73;
+    border-radius:5px;
+    position: absolute;
+    left: 300px;
+    bottom: 100px;
+    width:200px;
+    height:50px;
+    font-size: 1.2em;
+    
+}
+#boutonIW{
+    background-color: #aef77d;
+    border-radius:5px;
+    position: absolute;
+    left: 575px;
+    bottom: 100px;
+    width: 200px;
+    height:50px;
+    font-size: 1.2em;
+    
+}
+a{
+    text-decoration: none;
+}
+
+#para1{
+    color: white;
+    font-size:2em ;
+    position: absolute;
+    left: 300px;
+    top: 75px;
+}
+#paragauche{
+    color: white;
+    font-size:1.2em ;
+    position: absolute;
+    left: 300px;
+    top: 200px;
+    text-align: center;
+}
+#paradroite{
+    color: white;
+    font-size:1.2em ;
+    position: absolute;
+    left: 580px;
+    top: 200px;
+    text-align: center;
+}
