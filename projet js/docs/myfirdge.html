@@ -77,12 +77,12 @@
             let images = [];
         
             const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-            
+        
             checkboxes.forEach((checkbox) => {
                 choices.push(checkbox.nextElementSibling.textContent.trim());
                 images.push(checkbox.getAttribute('data-image'));
             });
-            
+        
             document.getElementById('userChoices').textContent = 'Vous avez choisi: ' + choices.join(',  ');
         
             const imagesContainer = document.getElementById('imagesContainer');
@@ -94,10 +94,7 @@
                 imgElement.style.maxWidth = '100px'; // Ajustez la taille de l'image selon vos besoins
                 imagesContainer.appendChild(imgElement);
             });
-        });
-            
-        //api refrigerateur//
-        document.getElementById('submitBtn').addEventListener('click', function() {
+        
             // Logique pour récupérer les choix et afficher les images
             // ...
         });
@@ -120,18 +117,28 @@
             .then(response => response.json())
             .then(data => {
                 // Gérer la réponse de l'API ici
+                console.log(data); // Affiche les données dans la console
+                // Gérer la réponse de l'API ici
                 const recipesContainer = document.getElementById('recipesContainer');
                 recipesContainer.innerHTML = ''; // Efface les résultats précédents
                 
                 data.forEach((recipe) => {
-                    const recipeLink = document.createElement('a');
-                    recipeLink.textContent = recipe.title;
-                    recipeLink.href = recipe.sourceUrl; // Lien vers la recette sur Spoonacular
-                    recipeLink.target = "_blank"; // Ouvrir dans un nouvel onglet
-                    
-                    const recipeElement = document.createElement('div');
-                    recipeElement.appendChild(recipeLink);
-                    recipesContainer.appendChild(recipeElement);
+                    // Créer un lien vers la recette
+                const recipeLink = document.createElement('a');
+                recipeLink.href = recipe.sourceUrl; // Lien vers la recette sur Spoonacular
+                recipeLink.target = "_blank"; // Ouvrir dans un nouvel onglet
+                recipeLink.title = recipe.title; // Ajouter le titre de la recette comme texte de survol
+
+                // Créer une image pour la recette
+                const recipeImage = document.createElement('img');
+                recipeImage.src = recipe.image; // URL de l'image de la recette
+                recipeImage.alt = recipe.title; // Texte alternatif pour l'image
+
+                // Ajouter l'image à l'élément du lien
+                recipeLink.appendChild(recipeImage);
+
+                // Ajouter le lien (avec l'image) à la liste des recettes
+                recipesContainer.appendChild(recipeLink);
                 });
             })
             .catch(error => {
