@@ -101,3 +101,27 @@ const createMeal = meal => {
 };
 
 
+
+// document.getElementById('submitBtn').addEventListener('click', function() {
+//     let choices = []; 
+//     let images = [];
+
+//     const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    
+//     checkboxes.forEach((checkbox) => {
+//         choices.push(checkbox.nextElementSibling.textContent.trim());
+//         images.push(checkbox.getAttribute('data-image'));
+//     });
+    
+//     document.getElementById('userChoices').textContent = 'Vous avez choisi: ' + choices.join(', ');
+
+//     const imagesContainer = document.getElementById('imagesContainer');
+//     imagesContainer.innerHTML = ''; // Efface les images précédentes
+
+//     images.forEach((image) => {
+//         const imgElement = document.createElement('img');
+//         imgElement.src = image;
+//         imgElement.style.maxWidth = '100px'; // Ajustez la taille de l'image selon vos besoins
+//         imagesContainer.appendChild(imgElement);
+//     });
+// });
