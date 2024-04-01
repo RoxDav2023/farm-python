@@ -8,59 +8,65 @@
     <script src="../js/monjs.js"></script>
 </head>
 <body>
+    <img src="../image/robot.png" alt="robot" id="robot1">
+    <h1>Mon Réfrigérateur</h1>
+    <p>Tu as choisi «Mon Réfrigérateur» ici sélectionne <br>les aliments que tu possèdes et appuis sur soumettre. <br>Ensuite, sur valider pour confirmer les choix choisis.</p>
 
-<div id="userChoices"></div>
-<div id="imagesContainer"></div>
+    <div id="userChoices"></div>
+
+    <div id="imagesContainer"></div>
+
     <form>
-    <input type="checkbox" id="beef" name="beef" value="Boef" data-image="../image/1.png">
+    <input type="checkbox" id="beef" name="beef" value="beef" data-image="../image/1.png">
     <label for="food1">J'ai du boeuf</label><br>
-    <input type="checkbox" id="GBeef" name="groundbeef" value="Boeufh" data-image="../image/2.png">
+    <input type="checkbox" id="GBeef" name="groundbeef" value="groundbeef" data-image="../image/2.png">
     <label for="food2"> J'ai du boeuf haché</label><br> 
     <input type="checkbox" id="steak" name="steak" value="steak" data-image="../image/3.png">
     <label for="food3">J'ai du steak</label><br>
-    <input type="checkbox" id="chicken" name="chicken" value="poulet" data-image="../image/4.png">
-    <label for="food4">j'ai du poulet</label>
+    <input type="checkbox" id="chicken" name="chicken" value="chicken" data-image="../image/4.png">
+    <label for="food4">j'ai du poulet</label><br>
     <input type="checkbox" id="pork" name="pork" value="pork" data-image="../image/5.png">
-    <label for="food5"> J'ai du pork chop</label><br>
+    <label for="food5"> J'ai du pork</label><br>
     <input type="checkbox" id="Bacon" name="bacon" value="bacon" data-image="../image/6.png">
     <label for="food6"> J'ai du bacon</label><br>
-    <input type="checkbox" id="Ham" name="ham" value="jambon" data-image="../image/22.png">
-    <label for="food22">j'ai du jambon</label>
+    <input type="checkbox" id="Ham" name="ham" value="ham" data-image="../image/22.png">
+    <label for="food22">j'ai du jambon</label><br>
     <input type="checkbox" id="ribs" name="cote" value="ribs" data-image="../image/7.png">
-    <label for="food8">j'ai des ribs</label>
-    <input type="checkbox" id="Lamb" name="lamb" value="agneau" data-image="../image/8.png">
+    <label for="food8">j'ai des ribs</label><br>
+    <input type="checkbox" id="Lamb" name="lamb" value="lamb" data-image="../image/8.png">
     <label for="food9">J'ai de l'agneaux</label><br>
-    <input type="checkbox" id="Sausage" name="sausage" value="saucise" data-image="../image/9.png">
-    <label for="food10"> J'ai des p'tite saucisses</label><br>
-    <input type="checkbox" id="Duck" name="duck" value="canard" data-image="../image/10.png">
+    <input type="checkbox" id="Sausage" name="sausage" value="sausage" data-image="../image/9.png">
+    <label for="food10"> J'ai des saucisses</label><br>
+    <input type="checkbox" id="Duck" name="duck" value="duck" data-image="../image/10.png">
     <label for="food11">J'ai du canard</label><br>
-    <input type="checkbox" id="Fish" name="fish" value="poisson"data-image="../image/11.png">
-    <label for="food12">j'ai du poisson</label>
-    <input type="checkbox" id="oyster" name="oyster" value="huitre" data-image="../image/12.png">
+    <input type="checkbox" id="Fish" name="fish" value="fish"data-image="../image/11.png">
+    <label for="food12">j'ai du poisson</label><br>
+    <input type="checkbox" id="oyster" name="oyster" value="oyster" data-image="../image/12.png">
     <label for="food13"> J'ai des huitres</label><br>
-    <input type="checkbox" id="Crab" name="crab" value="crabe" data-image="../image/13.png">
+    <input type="checkbox" id="Crab" name="crab" value="crab" data-image="../image/13.png">
     <label for="food14">J'ai du crabe</label><br>
-    <input type="checkbox" id="Mussels" name="mussel" value="moule" data-image="../image/14.png">
-    <label for="food15">j'ai des moules</label>
-    <input type="checkbox" id="Lobster" name="lobster" value="hommard" data-image="../image/15.png">
+    <input type="checkbox" id="Mussels" name="mussel" value="mussel" data-image="../image/14.png">
+    <label for="food15">j'ai des moules</label><br>
+    <input type="checkbox" id="Lobster" name="lobster" value="lobster" data-image="../image/15.png">
     <label for="food16">J'ai du hommard</label><br>
-    <input type="checkbox" id="Shrimp" name="shrimp" value="crevette" data-image="../image/16.png">
+    <input type="checkbox" id="Shrimp" name="shrimp" value="shrimp" data-image="../image/16.png">
     <label for="food17"> J'ai des crevettes</label><br>
-    <input type="checkbox" id="Scallop" name="scallop" value="petoncle" data-image="../image/17.png">
+    <input type="checkbox" id="Scallop" name="scallop" value="scallop" data-image="../image/17.png">
     <label for="food18">J'ai des pétoncles</label><br>
-    <input type="checkbox" id="Pasta" name="pasta" value="pate" data-image="../image/18.png">
+    <input type="checkbox" id="Pasta" name="pasta" value="pasta" data-image="../image/18.png">
     <label for="food19"> J'ai des pâtes</label><br>
-    <input type="checkbox" id="Egg" name="egg" value="oeuf" data-image="../image/19.png">
-    <label for="food20">j'ai des oeufs</label>
-    <input type="checkbox" id="Bread" name="bread" value="pain" data-image="../image/20.png">
+    <input type="checkbox" id="Egg" name="egg" value="egg" data-image="../image/19.png">
+    <label for="food20">j'ai des oeufs</label><br>
+    <input type="checkbox" id="Bread" name="bread" value="bread" data-image="../image/20.png">
     <label for="food21">J'ai du pain</label><br>
-    <input type="checkbox" id="Potato" name="potato" value="patate" data-image="../image/21.png">
+    <input type="checkbox" id="Potato" name="potato" value="potato" data-image="../image/21.png">
     <label for="food22"> J'ai des patates</label><br>
     </form>
     
 
     <button id="submitBtn">Soumettre</button>
-    <div id="userChoices"></div>
+    <button id="validateBtn">Valider</button>
+    <div id="recipesContainer"></div>
 
 
 
@@ -77,7 +83,7 @@
                 images.push(checkbox.getAttribute('data-image'));
             });
             
-            document.getElementById('userChoices').textContent = 'Vous avez choisi: ' + choices.join(', ');
+            document.getElementById('userChoices').textContent = 'Vous avez choisi: ' + choices.join(',  ');
         
             const imagesContainer = document.getElementById('imagesContainer');
             imagesContainer.innerHTML = ''; // Efface les images précédentes
@@ -89,12 +95,55 @@
                 imagesContainer.appendChild(imgElement);
             });
         });
+            
+        //api refrigerateur//
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            // Logique pour récupérer les choix et afficher les images
+            // ...
+        });
         
-        </script>
-   
+        document.getElementById('validateBtn').addEventListener('click', function() {
+            let selectedValues = [];
+            const selectedChoices = document.querySelectorAll('input[type="checkbox"]:checked');
+            
+            selectedChoices.forEach((choice) => {
+                selectedValues.push(choice.value);
+            });
+            
+            // Requête à l'API Spoonacular
+            const api_key = '6de7304103c9471ea3d59b2931dd2911';
+            const number_of_recipes = 10;
+            const ingredients = selectedValues.join(',');
+            const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=${number_of_recipes}&apiKey=${api_key}`;
+            
+            fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Gérer la réponse de l'API ici
+                const recipesContainer = document.getElementById('recipesContainer');
+                recipesContainer.innerHTML = ''; // Efface les résultats précédents
+                
+                data.forEach((recipe) => {
+                    const recipeLink = document.createElement('a');
+                    recipeLink.textContent = recipe.title;
+                    recipeLink.href = recipe.sourceUrl; // Lien vers la recette sur Spoonacular
+                    recipeLink.target = "_blank"; // Ouvrir dans un nouvel onglet
+                    
+                    const recipeElement = document.createElement('div');
+                    recipeElement.appendChild(recipeLink);
+                    recipesContainer.appendChild(recipeElement);
+                });
+            })
+            .catch(error => {
+                console.error('Erreur lors de la recherche de recettes :', error);
+            });
+        });  
+                
+    </script>
+        
 
 
-</body>
+        </body>
 
-</html>
+        </html>
 

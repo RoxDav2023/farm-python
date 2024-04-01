@@ -125,3 +125,28 @@ const createMeal = meal => {
 //         imagesContainer.appendChild(imgElement);
 //     });
 // });
+
+
+//api refrigerateur//
+
+document.getElementById('validateBtn').addEventListener('click', function() {
+    // Récupérer les choix sélectionnés
+    const selectedChoices = document.querySelectorAll('input[type="checkbox"]:checked');
+    const selectedValues = Array.from(selectedChoices).map(choice => choice.value);
+    
+    // Envoyer les choix à l'API
+    fetch('url_de_votre_api', {
+        method: 'POST', // ou 'GET' si nécessaire
+        headers: {
+            'Content-Type': 'application/json',
+            // Ajoutez d'autres en-têtes si nécessaire
+        },
+        body: JSON.stringify({ filters: selectedValues }),
+    })
+    .then(response => {
+        // Gérer la réponse de l'API ici
+    })
+    .catch(error => {
+        console.error('Erreur lors de l\'envoi des données à l\'API :', error);
+    });
+});
