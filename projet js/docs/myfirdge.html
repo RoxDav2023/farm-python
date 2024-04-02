@@ -80,6 +80,8 @@
                 choices.push(checkbox.nextElementSibling.textContent.trim());
                 images.push(checkbox.getAttribute('data-image'));
             });
+
+            
         
             document.getElementById('userChoices').textContent = 'Vous avez choisi: ' + choices.join(',  ');
         
