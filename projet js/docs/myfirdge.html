@@ -18,47 +18,47 @@
 
     <form>
     <input type="checkbox" id="beef" name="beef" value="beef" data-image="../image/1.png">
-    <label for="food1">J'ai du boeuf</label><br>
+    <label for="beef">J'ai du boeuf</label><br>
     <input type="checkbox" id="steak" name="steak" value="steak" data-image="../image/3.png">
-    <label for="food3">J'ai du steak</label><br>
+    <label for="steak">J'ai du steak</label><br>
     <input type="checkbox" id="chicken" name="chicken" value="chicken" data-image="../image/4.png">
-    <label for="food4">j'ai du poulet</label><br>
+    <label for="chicken">j'ai du poulet</label><br>
     <input type="checkbox" id="pork" name="pork" value="pork" data-image="../image/5.png">
-    <label for="food5"> J'ai du porc</label><br>
+    <label for="pork"> J'ai du porc</label><br>
     <input type="checkbox" id="Bacon" name="bacon" value="bacon" data-image="../image/6.png">
-    <label for="food6"> J'ai du bacon</label><br>
+    <label for="Bacon"> J'ai du bacon</label><br>
     <input type="checkbox" id="Ham" name="ham" value="ham" data-image="../image/22.png">
-    <label for="food22">j'ai du jambon</label><br>
+    <label for="Ham">j'ai du jambon</label><br>
     <input type="checkbox" id="ribs" name="cote" value="ribs" data-image="../image/7.png">
-    <label for="food8">j'ai des ribs</label><br>
+    <label for="ribs">j'ai des ribs</label><br>
     <input type="checkbox" id="Lamb" name="lamb" value="lamb" data-image="../image/8.png">
-    <label for="food9">J'ai de l'agneaux</label><br>
+    <label for="Lamb">J'ai de l'agneaux</label><br>
     <input type="checkbox" id="Sausage" name="sausage" value="sausage" data-image="../image/9.png">
-    <label for="food10"> J'ai des saucisses</label><br>
+    <label for="Sausage"> J'ai des saucisses</label><br>
     <input type="checkbox" id="Duck" name="duck" value="duck" data-image="../image/10.png">
-    <label for="food11">J'ai du canard</label><br>
+    <label for="Duck1">J'ai du canard</label><br>
     <input type="checkbox" id="Fish" name="fish" value="fish"data-image="../image/11.png">
-    <label for="food12">j'ai du poisson</label><br>
+    <label for="Fish">j'ai du poisson</label><br>
     <input type="checkbox" id="oyster" name="oyster" value="oyster" data-image="../image/12.png">
-    <label for="food13"> J'ai des huitres</label><br>
+    <label for="oyster"> J'ai des huitres</label><br>
     <input type="checkbox" id="Crab" name="crab" value="crab" data-image="../image/13.png">
-    <label for="food14">J'ai du crabe</label><br>
+    <label for="Crab">J'ai du crabe</label><br>
     <input type="checkbox" id="Mussels" name="mussel" value="mussel" data-image="../image/14.png">
-    <label for="food15">j'ai des moules</label><br>
+    <label for="Mussels">j'ai des moules</label><br>
     <input type="checkbox" id="Lobster" name="lobster" value="lobster" data-image="../image/15.png">
-    <label for="food16">J'ai du hommard</label><br>
+    <label for="Lobster">J'ai du hommard</label><br>
     <input type="checkbox" id="Shrimp" name="shrimp" value="shrimp" data-image="../image/16.png">
-    <label for="food17"> J'ai des crevettes</label><br>
+    <label for="Shrimp"> J'ai des crevettes</label><br>
     <input type="checkbox" id="Scallop" name="scallop" value="scallop" data-image="../image/17.png">
-    <label for="food18">J'ai des pétoncles</label><br>
+    <label for="Scallop">J'ai des pétoncles</label><br>
     <input type="checkbox" id="Pasta" name="pasta" value="pasta" data-image="../image/18.png">
-    <label for="food19"> J'ai des pâtes</label><br>
+    <label for="Pasta"> J'ai des pâtes</label><br>
     <input type="checkbox" id="Egg" name="egg" value="egg" data-image="../image/19.png">
-    <label for="food20">j'ai des oeufs</label><br>
+    <label for="Egg">j'ai des oeufs</label><br>
     <input type="checkbox" id="Bread" name="bread" value="bread" data-image="../image/20.png">
-    <label for="food21">J'ai du pain</label><br>
+    <label for="Bread">J'ai du pain</label><br>
     <input type="checkbox" id="Potato" name="potato" value="potato" data-image="../image/21.png">
-    <label for="food22"> J'ai des patates</label><br>
+    <label for="Potato"> J'ai des patates</label><br>
     </form>
     
 
@@ -81,8 +81,6 @@
                 images.push(checkbox.getAttribute('data-image'));
             });
 
-            
-        
             document.getElementById('userChoices').textContent = 'Vous avez choisi: ' + choices.join(',  ');
         
             const imagesContainer = document.getElementById('imagesContainer');
@@ -94,9 +92,6 @@
                 imgElement.style.maxWidth = '100px'; // Ajustez la taille de l'image selon vos besoins
                 imagesContainer.appendChild(imgElement);
             });
-        
-            // Logique pour récupérer les choix et afficher les images
-            // ...
         });
         
         document.getElementById('validateBtn').addEventListener('click', function() {
@@ -108,37 +103,34 @@
             });
             
             // Requête à l'API Spoonacular
-            const api_key = '6de7304103c9471ea3d59b2931dd2911';
+            const apiKey = '6de7304103c9471ea3d59b2931dd2911'; // Remplacez 'YOUR_API_KEY' par votre clé d'API Spoonacular
             const number_of_recipes = 10;
             const ingredients = selectedValues.join(',');
-            const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=${number_of_recipes}&apiKey=${api_key}`;
+            const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=${number_of_recipes}&apiKey=${apiKey}`;
             
             fetch(url)
             .then(response => response.json())
             .then(data => {
-                // Gérer la réponse de l'API ici
-                console.log(data); // Affiche les données dans la console
-                // Gérer la réponse de l'API ici
                 const recipesContainer = document.getElementById('recipesContainer');
                 recipesContainer.innerHTML = ''; // Efface les résultats précédents
                 
                 data.forEach((recipe) => {
                     // Créer un lien vers la recette
-                const recipeLink = document.createElement('a');
-                recipeLink.href = recipe.sourceUrl; // Lien vers la recette sur Spoonacular
-                recipeLink.target = "_blank"; // Ouvrir dans un nouvel onglet
-                recipeLink.title = recipe.title; // Ajouter le titre de la recette comme texte de survol
-                console.log(recipe.sourceUrl)
-                // Créer une image pour la recette
-                const recipeImage = document.createElement('img');
-                recipeImage.src = recipe.image; // URL de l'image de la recette
-                recipeImage.alt = recipe.title; // Texte alternatif pour l'image
+                    const recipeLink = document.createElement('a');
+                    recipeLink.href = `https://spoonacular.com/recipes/${recipe.title}-${recipe.id}`;
+                    recipeLink.target = "_blank"; // Ouvrir dans un nouvel onglet
+                    recipeLink.title = recipe.title; // Ajouter le titre de la recette comme texte de survol
 
-                // Ajouter l'image à l'élément du lien
-                recipeLink.appendChild(recipeImage);
+                    // Créer une image pour la recette
+                    const recipeImage = document.createElement('img');
+                    recipeImage.src = recipe.image; // URL de l'image de la recette
+                    recipeImage.alt = recipe.title; // Texte alternatif pour l'image
 
-                // Ajouter le lien (avec l'image) à la liste des recettes
-                recipesContainer.appendChild(recipeLink);
+                    // Ajouter l'image à l'élément du lien
+                    recipeLink.appendChild(recipeImage);
+
+                    // Ajouter le lien (avec l'image) à la liste des recettes
+                    recipesContainer.appendChild(recipeLink);
                 });
             })
             .catch(error => {
