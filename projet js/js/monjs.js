@@ -32,14 +32,14 @@ const get_meal_btn = document.getElementById("get_meal");
 const meal_container = document.getElementById("meal");
 
 get_meal_btn.addEventListener('click', () => {
-	fetch('https://www.themealdb.com/api/json/v1/1/random.php')
-		.then(res => res.json())
-		.then(res => {
-			createMeal(res.meals[0]);
-		})
-		.catch(e => {
-			console.warn(e);
-		});
+    fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+        .then(res => res.json())
+        .then(res => {
+            createMeal(res.meals[0]);
+        })
+        .catch(e => {
+            console.warn(e);
+        });
 });
 
 
@@ -49,13 +49,13 @@ const createMeal = meal => {
     const ingredients = [];
 
     // obtenir tous les ingredients de l'objet. Jusqu'a 20.
-    for (let i = 1; 1<= 20; i++) {
-        if (meal["strIngredient${i}"]) {
+    for (let i = 1; i <= 20; i++) {
+        if (meal[`strIngredient${i}`]) {
             ingredients.push(
-                `${meal["strIngredient${i}"]} - ${meal["strMeasure${i}"]}`
+                `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`
             );
         } else {
-            // arret s'il n'a plus d'ingredients
+            // Arrêt s'il n'y a plus d'ingrédients
             break;
         }
     }
