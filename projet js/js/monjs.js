@@ -65,12 +65,13 @@ const createMeal = meal => {
         <div class="row">
             <div class="columns five">
                 <img src="${meal.strMealThumb}" alt="Image Repas">
+                ${meal.strMeal ? `<p><strong>Nom:</strong> ${meal.strMeal}</p>` : " "}
                 ${
                     meal.strCategory
-                    ? `<p><strong>Categorie:</strong> ${meal.strCategory}</p>`
+                    ? `<p><strong>Catégorie:</strong> ${meal.strCategory}</p>`
                     : ""
                 }
-                $${meal.strArea ? `<p><strong>Area:</strong> ${meal.strArea}</p>` : " "}
+                ${meal.strArea ? `<p><strong>Zone:</strong> ${meal.strArea}</p>` : " "}  
                 ${
                     meal.strTags
                         ?`<p><strong>Tags:</strong> ${meal.strTags
@@ -78,7 +79,7 @@ const createMeal = meal => {
                             .join(", ")}</p>`
                         : ""
                 }
-                <h5>Ingredients:</h5>
+                <h5>Ingrédients:</h5>
                 <ul>
                     ${ingredients.map(ingredient => `<li>${ingredient}</li>`).join("")}
                 </ul>
