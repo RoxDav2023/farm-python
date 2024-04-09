@@ -58,12 +58,15 @@ li {
 }
 
 #robot1{
-    width: 300px;
+    width: 250px;
     position: absolute;
     left: 0px;
-    top: -30px;
+    top: 60px;
 }
 
 #size, p, ul, li{
-	font-size:0.5em;
+	font-size:0.8em;
+}
+li{
+    text-align: left;
 }
