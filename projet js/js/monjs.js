@@ -26,6 +26,7 @@ function hideFormAndShowNext() {
     okButton.style.display = "block"; // Pour afficher le bouton "Ok"
 }
 
+document.addEventListener("DOMContentLoaded", function() {
 // meal generator //
 const get_meal_btn = document.getElementById("get_meal");
 const meal_container = document.getElementById("meal");
@@ -99,7 +100,7 @@ const createMeal = meal => {
 
         meal_container.innerHTML = newInnerHTML;
 };
-
+});
 
 
 // document.getElementById('submitBtn').addEventListener('click', function() {
